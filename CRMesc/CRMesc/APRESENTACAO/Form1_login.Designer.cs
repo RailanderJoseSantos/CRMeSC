@@ -33,7 +33,7 @@
             this.lbl_usuario = new System.Windows.Forms.Label();
             this.lbl_senha = new System.Windows.Forms.Label();
             this.txt_usuario = new System.Windows.Forms.TextBox();
-            this.text_senha = new System.Windows.Forms.TextBox();
+            this.txt_senha = new System.Windows.Forms.TextBox();
             this.btn_logar = new System.Windows.Forms.Button();
             this.btn_cancelar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -86,13 +86,15 @@
             this.txt_usuario.Size = new System.Drawing.Size(211, 29);
             this.txt_usuario.TabIndex = 5;
             // 
-            // text_senha
+            // txt_senha
             // 
-            this.text_senha.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.text_senha.Location = new System.Drawing.Point(115, 220);
-            this.text_senha.Name = "text_senha";
-            this.text_senha.Size = new System.Drawing.Size(213, 29);
-            this.text_senha.TabIndex = 6;
+            this.txt_senha.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_senha.Location = new System.Drawing.Point(115, 220);
+            this.txt_senha.Name = "txt_senha";
+            this.txt_senha.Size = new System.Drawing.Size(213, 29);
+            this.txt_senha.TabIndex = 6;
+            this.txt_senha.UseSystemPasswordChar = true;
+            this.txt_senha.TextChanged += new System.EventHandler(this.Txt_senha_TextChanged);
             // 
             // btn_logar
             // 
@@ -106,6 +108,7 @@
             this.btn_logar.TabIndex = 7;
             this.btn_logar.Text = "Logar";
             this.btn_logar.UseVisualStyleBackColor = false;
+            this.btn_logar.Click += new System.EventHandler(this.Btn_logar_Click);
             // 
             // btn_cancelar
             // 
@@ -129,7 +132,7 @@
             this.ClientSize = new System.Drawing.Size(353, 414);
             this.Controls.Add(this.btn_cancelar);
             this.Controls.Add(this.btn_logar);
-            this.Controls.Add(this.text_senha);
+            this.Controls.Add(this.txt_senha);
             this.Controls.Add(this.txt_usuario);
             this.Controls.Add(this.lbl_senha);
             this.Controls.Add(this.lbl_usuario);
@@ -151,7 +154,7 @@
         private System.Windows.Forms.Label lbl_usuario;
         private System.Windows.Forms.Label lbl_senha;
         private System.Windows.Forms.TextBox txt_usuario;
-        private System.Windows.Forms.TextBox text_senha;
+        private System.Windows.Forms.TextBox txt_senha;
         private System.Windows.Forms.Button btn_logar;
         private System.Windows.Forms.Button btn_cancelar;
     }

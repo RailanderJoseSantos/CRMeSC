@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CRMesc.APRESENTACAO;
+using CRMesc.DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
@@ -15,7 +17,15 @@ namespace CRMesc
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1_login());
+            // Application.Run(new Form1_login());
+            Form1_login flogin = new Form1_login();
+            if (flogin.ShowDialog() == DialogResult.OK)
+            {
+                Application.Run(new MainForm());
+            }
+            else {
+                Application.Exit();
+            }
         }
     }
 }
