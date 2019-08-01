@@ -51,5 +51,10 @@ namespace CRMesc.APRESENTACAO
         {
 
         }
+
+        private void PONTUAÇAOToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -81,7 +81,8 @@
             // 
             this.pONTUAÇAOToolStripMenuItem.Name = "pONTUAÇAOToolStripMenuItem";
             this.pONTUAÇAOToolStripMenuItem.Size = new System.Drawing.Size(143, 26);
-            this.pONTUAÇAOToolStripMenuItem.Text = "PONTUAÇAO";
+            this.pONTUAÇAOToolStripMenuItem.Text = "PONTUAÇÃO";
+            this.pONTUAÇAOToolStripMenuItem.Click += new System.EventHandler(this.PONTUAÇAOToolStripMenuItem_Click);
             // 
             // contextMenuStrip1
             // 

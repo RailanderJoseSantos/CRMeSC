@@ -53,6 +53,7 @@
     <Compile Include="AdicionarAlunoForm.Designer.cs">
       <DependentUpon>AdicionarAlunoForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Aluno.cs" />
     <Compile Include="APRESENTACAO\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +71,9 @@
     <Compile Include="DAL\LoginDaoComandos.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AdicionarAlunoForm.resx">
+      <DependentUpon>AdicionarAlunoForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="APRESENTACAO\Form1_login.resx">
       <DependentUpon>Form1_login.cs</DependentUpon>
     </EmbeddedResource>

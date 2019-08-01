@@ -85,6 +85,7 @@
             this.txt_usuario.Name = "txt_usuario";
             this.txt_usuario.Size = new System.Drawing.Size(211, 29);
             this.txt_usuario.TabIndex = 5;
+            this.txt_usuario.Text = "railander";
             // 
             // txt_senha
             // 
@@ -93,6 +94,7 @@
             this.txt_senha.Name = "txt_senha";
             this.txt_senha.Size = new System.Drawing.Size(213, 29);
             this.txt_senha.TabIndex = 6;
+            this.txt_senha.Text = "12345";
             this.txt_senha.UseSystemPasswordChar = true;
             this.txt_senha.TextChanged += new System.EventHandler(this.Txt_senha_TextChanged);
             // 
