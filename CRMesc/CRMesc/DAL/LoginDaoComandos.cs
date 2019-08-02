@@ -14,6 +14,7 @@ namespace CRMesc.DAL
         public String mensagem = "";
         SqlCommand cmd = new SqlCommand();
 
+
         public bool verificarLogin(String login, String senha)
         {
             LoginDaoComandos loginDao = new LoginDaoComandos();
@@ -21,7 +22,6 @@ namespace CRMesc.DAL
             cmd.CommandText = "SELECT USUARIO FROM USUARIOS	WHERE USUARIO = @login AND SENHA = @senha";
             cmd.Parameters.AddWithValue("@login",login);
             cmd.Parameters.AddWithValue("@senha", senha);
-
             try
             {
                 cmd.Connection = con.conectar();

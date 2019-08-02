@@ -21,7 +21,7 @@ namespace CRMesc.DAL
         }
 
         //desconector
-        public void desconctar() {
+        public void desconectar() {
              if (con.State == System.Data.ConnectionState.Open)
                 con.Close();
         }

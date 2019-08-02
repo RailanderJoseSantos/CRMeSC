@@ -47,10 +47,10 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdicionarAlunoForm.cs">
+    <Compile Include="APRESENTACAO\AdicionarAlunoForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdicionarAlunoForm.Designer.cs">
+    <Compile Include="APRESENTACAO\AdicionarAlunoForm.Designer.cs">
       <DependentUpon>AdicionarAlunoForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Aluno.cs" />
@@ -67,11 +67,18 @@
     <Compile Include="APRESENTACAO\Form1_login.Designer.cs">
       <DependentUpon>Form1_login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Endereco.cs" />
+    <Compile Include="APRESENTACAO\EnderecoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="APRESENTACAO\EnderecoForm.Designer.cs">
+      <DependentUpon>EnderecoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MODEL\LoginControle.cs" />
     <Compile Include="DAL\LoginDaoComandos.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AdicionarAlunoForm.resx">
+    <EmbeddedResource Include="APRESENTACAO\AdicionarAlunoForm.resx">
       <DependentUpon>AdicionarAlunoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="APRESENTACAO\Form1_login.resx">
@@ -79,6 +86,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="APRESENTACAO\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="APRESENTACAO\EnderecoForm.resx">
+      <DependentUpon>EnderecoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

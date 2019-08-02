@@ -36,10 +36,10 @@ namespace CRMesc
                 if (controle.tem)
                 {
                     /*MessageBox.Show("Logado com sucesso",
-                        "Entrando", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        "Entrando", MessageBoxButtons.OK, MessageBoxIcon.Information);*/
                     //instanciar e abrir formulario de acesso*/
-                    MainForm acesso = new MainForm();
-                    acesso.Show();
+                    MainForm principalJanela = new MainForm();
+                    principalJanela.Show(); 
                 }
                 else
                 {
