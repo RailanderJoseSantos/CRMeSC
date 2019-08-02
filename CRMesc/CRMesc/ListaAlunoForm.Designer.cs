@@ -43,6 +43,7 @@
             this.grid_alunos.Size = new System.Drawing.Size(653, 372);
             this.grid_alunos.TabIndex = 0;
             this.grid_alunos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Grid_alunos_CellContentClick);
+            this.grid_alunos.DoubleClick += new System.EventHandler(this.Grid_alunos_DoubleClick);
             // 
             // btn_Atualizar
             // 
@@ -57,6 +58,7 @@
             this.btn_Atualizar.TabIndex = 1;
             this.btn_Atualizar.Text = "Atualizar";
             this.btn_Atualizar.UseVisualStyleBackColor = false;
+            this.btn_Atualizar.Click += new System.EventHandler(this.Btn_Atualizar_Click);
             // 
             // ListaAlunoForm
             // 

@@ -12,10 +12,10 @@ namespace CRMesc
     {
         //funcao paraadcionar novo aluno no banco
         Banco db = new Banco();
-        public bool inserirAluno(String nome, DateTime nascimento, String telefone, String genero, int idEndereco,  MemoryStream foto )
+        public bool inserirAluno(String nome, DateTime nascimento, String telefone, String genero, int idEndereco, MemoryStream foto)
         {
             SqlCommand cmd = new SqlCommand("INSERT INTO ALUNO( nome, nascimento, genero, telefone, endereco, foto)" +
-                "VALUES(@nm,@nsc,@gnr,@tel,@idEnd,@fot)",db.conectar());
+                "VALUES(@nm,@nsc,@gnr,@tel,@idEnd,@fot)", db.conectar());
             cmd.Parameters.Add("@nm", SqlDbType.VarChar).Value = nome;
             cmd.Parameters.Add("@nsc", SqlDbType.Date).Value = nascimento;
             cmd.Parameters.Add("@gnr", SqlDbType.VarChar).Value = telefone;
@@ -24,7 +24,7 @@ namespace CRMesc
             cmd.Parameters.Add("@fot", SqlDbType.Image).Value = foto.ToArray();
 
             db.conectar();
-            if(cmd.ExecuteNonQuery() == 1)
+            if (cmd.ExecuteNonQuery() == 1)
             {
                 db.desconectar();
                 return true;
@@ -44,6 +44,52 @@ namespace CRMesc
             DataTable table = new DataTable();
             adapter.Fill(table);
             return table;
+        }
+        //funcao para atualizar aluno
+        public bool atualizarAluno(int idAluno, String nome, DateTime nascimento, String telefone, String genero, int idEndereco, MemoryStream foto)
+        {
+            SqlCommand cmd = new SqlCommand("UPDATE ALUNO SET nome = @nm, nascimento = @nsc, genero = @gnr, telefone = @tel,"+
+                "endereco = @idEnd, foto = @fot) WHERE ID = @ID", db.conectar());
+            cmd.Parameters.Add("@id", SqlDbType.Int).Value = idAluno;
+            cmd.Parameters.Add("@nm", SqlDbType.VarChar).Value = nome;
+            cmd.Parameters.Add("@nsc", SqlDbType.Date).Value = nascimento;
+            cmd.Parameters.Add("@gnr", SqlDbType.VarChar).Value = telefone;
+            cmd.Parameters.Add("@tel", SqlDbType.VarChar).Value = genero;
+            cmd.Parameters.Add("@idEnd", SqlDbType.Int).Value = idEndereco;
+            cmd.Parameters.Add("@fot", SqlDbType.Image).Value = foto.ToArray();
+
+            db.conectar();
+            if (cmd.ExecuteNonQuery() == 1)
+            {
+                db.desconectar();
+                return true;
+            }
+            else
+            {
+                db.desconectar();
+                return false;
+            }
+
+        }
+
+        //funcao para deletar aluno
+        public bool deletarAlumo(int idAluno)
+        {
+            SqlCommand cmd = new SqlCommand("DELETE FROM ID = @ID", db.conectar());
+            cmd.Parameters.Add("@id", SqlDbType.Int).Value = idAluno;
+
+            db.conectar();
+            if (cmd.ExecuteNonQuery() == 1)
+            {
+                db.desconectar();
+                return true;
+            }
+            else
+            {
+                db.desconectar();
+                return false;
+            }
+
         }
     }
 }

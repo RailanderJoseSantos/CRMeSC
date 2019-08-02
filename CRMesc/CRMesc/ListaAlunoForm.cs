@@ -25,6 +25,7 @@ namespace CRMesc
             DataGridViewImageColumn fotoCol = new DataGridViewImageColumn();
             grid_alunos.RowTemplate.Height = 80;
             grid_alunos.DataSource = aluno.getAlunos(comand);
+            //6 indice da imagem em relacao aos campos no banco
             fotoCol = (DataGridViewImageColumn)grid_alunos.Columns[6];
             fotoCol.ImageLayout = DataGridViewImageCellLayout.Stretch;
             grid_alunos.AllowUserToAddRows = false;
@@ -34,6 +35,16 @@ namespace CRMesc
         private void Grid_alunos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void Grid_alunos_DoubleClick(object sender, EventArgs e)
+        {
+            //duplo clique: editar/remover
+        }
+
+        private void Btn_Atualizar_Click(object sender, EventArgs e)
+        {
+            //atualiza a grid
         }
     }
 }

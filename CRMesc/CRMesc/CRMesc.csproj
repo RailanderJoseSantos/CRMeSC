@@ -60,6 +60,12 @@
     <Compile Include="APRESENTACAO\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Atualiza_Deleta_Aluno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Atualiza_Deleta_Aluno.Designer.cs">
+      <DependentUpon>Atualiza_Deleta_Aluno.cs</DependentUpon>
+    </Compile>
     <Compile Include="DAL\Banco.cs" />
     <Compile Include="APRESENTACAO\Form1_login.cs">
       <SubType>Form</SubType>
@@ -95,6 +101,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="APRESENTACAO\EnderecoForm.resx">
       <DependentUpon>EnderecoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Atualiza_Deleta_Aluno.resx">
+      <DependentUpon>Atualiza_Deleta_Aluno.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ListaAlunoForm.resx">
       <DependentUpon>ListaAlunoForm.cs</DependentUpon>
