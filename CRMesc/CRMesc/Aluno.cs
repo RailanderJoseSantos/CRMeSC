@@ -36,6 +36,14 @@ namespace CRMesc
             }
 
         }
-
+        //funcai de inserir na grid
+        public DataTable getAlunos(SqlCommand comand)
+        {
+            comand.Connection = db.conectar();
+            SqlDataAdapter adapter = new SqlDataAdapter(comand);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            return table;
+        }
     }
 }

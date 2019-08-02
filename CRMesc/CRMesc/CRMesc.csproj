@@ -74,6 +74,12 @@
     <Compile Include="APRESENTACAO\EnderecoForm.Designer.cs">
       <DependentUpon>EnderecoForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ListaAlunoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListaAlunoForm.Designer.cs">
+      <DependentUpon>ListaAlunoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MODEL\LoginControle.cs" />
     <Compile Include="DAL\LoginDaoComandos.cs" />
     <Compile Include="Program.cs" />
@@ -89,6 +95,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="APRESENTACAO\EnderecoForm.resx">
       <DependentUpon>EnderecoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListaAlunoForm.resx">
+      <DependentUpon>ListaAlunoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
