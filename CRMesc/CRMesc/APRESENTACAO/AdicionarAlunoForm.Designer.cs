@@ -340,9 +340,20 @@
         private System.Windows.Forms.Button btn_cancelarMatricula;
         private System.Windows.Forms.Button btn_adicionarfotoaluno;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Button btn_preencher_endereco;
-        private System.Windows.Forms.Label lbl_end;
-        private System.Windows.Forms.TextBox txt_codEndAluno;
+        private System.Windows.Forms.Label lbl_cep;
+        private System.Windows.Forms.TextBox txt_cep;
+        private System.Windows.Forms.TextBox txt_cidade;
+        private System.Windows.Forms.Label lbl_cidade;
+        private System.Windows.Forms.TextBox txt_bairro;
+        private System.Windows.Forms.Label lbl_bairro;
+        private System.Windows.Forms.TextBox txt_numero;
+        private System.Windows.Forms.Label lbl_numero;
+        private System.Windows.Forms.TextBox txt_uf;
+        private System.Windows.Forms.Label lbl_uf;
+        private System.Windows.Forms.Button btn_cancelar;
+        private System.Windows.Forms.Button btn_salvar;
+        private System.Windows.Forms.TextBox txt_rua;
+        private System.Windows.Forms.Label lbl_rua;
         private System.Windows.Forms.Button btn_anexarId;
     }
 }

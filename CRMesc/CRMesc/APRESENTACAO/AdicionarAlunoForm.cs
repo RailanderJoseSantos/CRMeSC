@@ -45,8 +45,12 @@ namespace CRMesc
             String telefone = txt_telefone.Text;
             String genero = "";
             int idEndereco = 0;
-            //if(this.getBtn_preencherIdClicado())
-               // idEndereco = int.Parse(txt_codEndAluno.ToString());
+            String cep = txt_cep.Text;
+            String rua = txt_rua.Text;
+            String bairro = txt_bairro.Text;
+            int  numero = int.Parse(txt_numero.Text);
+            String cidade = txt_cidade.Text;
+            String uf = txt_uf.Text;
           
 
             if (rd_btn_generoMasc.Checked) {
@@ -97,6 +101,12 @@ namespace CRMesc
                 (rd_btn_generoFem.Checked == false && rd_btn_generoMasc.Checked == false) ||
                 (lbl_endereco.Text.Trim() == "") ||
                 (pctb_foto.Image == null)
+                (txt_cep.Text.Trim() == "")
+                (txt_cidade.Text.Trim() == "") ||
+                (txt_rua.Text.Trim() == "") ||
+                (txt_numero.Text.Trim() == "") ||
+                (txt_bairro.Text.Trim() == "") ||
+                (txt_uf.Text.Trim() == "")
                 )
             {
                 return false;
