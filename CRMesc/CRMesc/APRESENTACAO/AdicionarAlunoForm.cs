@@ -40,82 +40,118 @@ namespace CRMesc
         private void Btn_salvarmatricula_Click(object sender, EventArgs e)
         {
             Aluno aluno = new Aluno();
+
             String nome = txt_nome.Text;
             DateTime nascimento = dtBox_nascimento.Value;
             String telefone = txt_telefone.Text;
-            String genero = "";
-            int idEndereco = 0;
+            String genero = "Masculino";
             String cep = txt_cep.Text;
             String rua = txt_rua.Text;
             String bairro = txt_bairro.Text;
-            int  numero = int.Parse(txt_numero.Text);
+            int numero = int.Parse(txt_numero.Text);
             String cidade = txt_cidade.Text;
-            String uf = txt_uf.Text;
-          
+            String uf = txt_estado.Text;
 
-            if (rd_btn_generoMasc.Checked) {
-                genero = "Masculino";
-            }
+
+
             if (rd_btn_generoFem.Checked)
             {
                 genero = "Feminino";
             }
-            
+
             MemoryStream fot = new MemoryStream();
 
             // checando idade de aluno ( 5 a 100 anos)
             int ano_nasc = dtBox_nascimento.Value.Year;
             int ano_atual = DateTime.Now.Year;
-            if ((ano_atual - ano_nasc) < 5 || (ano_atual - ano_nasc) > 100)
+            if (limitesCaracteresAceitos())
             {
-                MessageBox.Show("O aluno deve ter entre 5 e 100 anos", "Data de ascimento inválida", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else // adicionar aluno no banco
-            if (verificaCampoVazio())
-            {
-                pctb_foto.Image.Save(fot, pctb_foto.Image.RawFormat);
-                if (aluno.inserirAluno(nome, nascimento, telefone,genero,idEndereco, fot) /*&& (!this.getBtn_anexarIdClicado())*/ )
+                if ((ano_atual - ano_nasc) < 5 || (ano_atual - ano_nasc) > 100)
                 {
-                  //  MessageBox.Show("Aluno cadastrado ", "Cadastro de aluno", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //this.Close();
+                    MessageBox.Show("O aluno deve ter entre 5 e 100 anos", "Data de ascimento inválida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else // adicionar aluno no banco
+                if (verificaCampoVazio())
+                {
+                    pctb_foto.Image.Save(fot, pctb_foto.Image.RawFormat);
+                    if (aluno.inserirAluno(nome, nascimento, telefone, genero, fot, cep, rua, bairro, numero, cidade, uf))
+                    {
+                        MessageBox.Show("Aluno cadastrado ", "Cadastro de aluno", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erro ", "Cadastro de aluno", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        // Endereco endereco = new Endereco();
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Erro ", "Cadastro de aluno", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                   // Endereco endereco = new Endereco();
+                    MessageBox.Show("Preencha todos os campos ", "Cadastro de aluno", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
-            else {
-                MessageBox.Show("Preencha todos os campos ", "Cadastro de aluno", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-
         }
 
         // funcao para  verificar campo em branco
+        bool limitesCaracteresAceitos()
+        {
+            if ((txt_nome.Text.Length > 50))
+            {
+                MessageBox.Show("Nome do aluno pode ter no máximo 50 caracteres ", "Cadatro de aluno", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+            else if ((txt_telefone.Text.Length) > 20)
+            {
+                MessageBox.Show("Telefone do aluno pode ter no máximo 20 digitos ", "Cadastro de aluno", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+            else if ((txt_cep.Text.Length > 15))
+            {
+                MessageBox.Show("Cep do aluno pode ter no máximo 15 caracteres ", "Cadastro de aluno", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+            else if ((txt_rua.Text.Length > 50))
+            {
+                MessageBox.Show("Rua do aluno pode ter no máximo 50 caracteres ", "Cadastro de aluno", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+            else if ((txt_bairro.Text.Length > 50))
+            {
+                MessageBox.Show("Bairro do aluno pode ter no máximo 50 caracteres ", "Cadastro de aluno", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+            else if ((txt_estado.Text.Length > 2)) { 
+                MessageBox.Show("Estado do aluno pode ter no máximo 2 caracteres ", "Cadastro de aluno", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+           
+        }
+        // funcao para  verificar campo em branco
         bool verificaCampoVazio()
         {
-            if ( (txt_nome.Text.Trim() == "") ||
+            if ((txt_nome.Text.Trim() == "") ||
                 (txt_telefone.Text.Trim() == "") ||
-                (this.getBtn_preencherIdClicado() == false) ||
-                (this.getBtn_anexarIdClicado() == false) ||
                 (rd_btn_generoFem.Checked == false && rd_btn_generoMasc.Checked == false) ||
-                (lbl_endereco.Text.Trim() == "") ||
-                (pctb_foto.Image == null)
-                (txt_cep.Text.Trim() == "")
+                (pctb_foto.Image == null) ||
+                (txt_cep.Text.Trim() == "")|| 
                 (txt_cidade.Text.Trim() == "") ||
                 (txt_rua.Text.Trim() == "") ||
                 (txt_numero.Text.Trim() == "") ||
                 (txt_bairro.Text.Trim() == "") ||
-                (txt_uf.Text.Trim() == "")
+                (txt_estado.Text.Trim() == "")
                 )
             {
                 return false;
             }
-            else {
+            else
+            {
                 return true;
             }
         }
-
         private void Lbl_telefone_Click(object sender, EventArgs e)
         {
 
@@ -135,11 +171,6 @@ namespace CRMesc
 
         private void Btn_cancelarMatricula_Click(object sender, EventArgs e)
         {
-            if (this.getBtn_preencherIdClicado())
-            {
-                Endereco endereco = new Endereco();
-                endereco.deletarEndereco(0, true);
-            }
             //cancela matricula
             Close();
         }
@@ -156,11 +187,6 @@ namespace CRMesc
 
         private void Btn_preencher_endereco_Click(object sender, EventArgs e)
         {
-             this.setBtn_preencherClicado(true);
-            EnderecoForm end = new EnderecoForm();
-            //this.txt_codEndAluno.Text = this.id;
-            EnderecoForm endereco = new EnderecoForm();
-            endereco.Show();
         }
 
         private void setBtn_preencherClicado(bool valor)
@@ -180,83 +206,9 @@ namespace CRMesc
             return this.btn_anexarId_Clicado;
         }
 
-        private void Txt_codEndAluno_TextChanged(object sender, EventArgs e)
-        {
-            //EnderecoForm end = new EnderecoForm();
-            /*if (end.get_btn_salvaEnderecoClicado())
-            {
-                Banco bd = new Banco();
-                SqlConnection conexao = new SqlConnection();
-                SqlCommand cmd = new SqlCommand("SELECT MAX(ID) FROM ENDERECO", bd.conectar());
-                SqlDataReader registro = cmd.ExecuteReader();
-                if (registro.Read())
-                {
-                    this.txt_codEndAluno.Text = registro.GetValue(0).ToString();
-                    //MessageBox.Show("id: " + registro.GetValue(0));
-
-                }
-            }
-            else
-            {
-                MessageBox.Show("Preencha o campo endereço primeiro", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }*/
-
-        }
-        public void setTxt_codEndAluno_TextChanged(int id)
-        {
-            this.txt_codEndAluno.Text = id.ToString();
-        }
-
-        private void btn_anexarId_Clicked(object sender, EventArgs e)
-        {
-            if (!this.getBtn_preencherIdClicado())
-            {
-                MessageBox.Show("Antes de associar endereço com aluno, você deve cadastrar o endereço antes! ","Erro",MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else {
-                    this.setBtn_anexarIdClicado(true);
-                    this.setBtn_anexarIdClicado(true);
-                    EnderecoForm endereco = new EnderecoForm();
-                    Banco bd = new Banco();
-                    SqlConnection conexao = new SqlConnection();
-                    SqlCommand cmd = new SqlCommand("SELECT MAX(ID) FROM ENDERECO", bd.conectar());
-                    SqlDataReader registro = cmd.ExecuteReader();
-                    if (registro.Read())
-                    {
-                        this.txt_codEndAluno.Text = registro.GetValue(0).ToString();
-                        //MessageBox.Show("id: " + registro.GetValue(0));
-
-                    }else{
-                         MessageBox.Show("Preencha o campo endereço primeiro", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                     }
-                
-            }
-        }
-
-
-        /*   private void btn_anexar_endereco_Click(object sender, EventArgs e)
-           {
-               if (this.setBtn_preencherClicado())
-               {
-                   this.setBtn_anexarIdClicado(true);
-                   EnderecoForm endereco = new EnderecoForm();
-                   Banco bd = new Banco();
-                   SqlConnection conexao = new SqlConnection();
-                   SqlCommand cmd = new SqlCommand("SELECT MAX(ID) FROM ENDERECO", bd.conectar());
-                   SqlDataReader registro = cmd.ExecuteReader();
-                   if (registro.Read())
-                   {
-                       this.txt_codEndAluno.Text = registro.GetValue(0).ToString();
-                       //MessageBox.Show("id: " + registro.GetValue(0));
-
-                   }
-               }
-               else
-               {
-                   MessageBox.Show("Preencha o campo endereço primeiro", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-               }*/
     }
-    }
+
+}
 
     
 

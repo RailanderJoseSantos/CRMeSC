@@ -1,6 +1,6 @@
 ﻿namespace CRMesc
 {
-    partial class Atualiza_Deleta_Aluno
+    partial class Atualiza_Deleta_AlunoForm
     {
         /// <summary>
         /// Required designer variable.
@@ -38,13 +38,13 @@
             this.lbl_nascimento = new System.Windows.Forms.Label();
             this.txt_nome = new System.Windows.Forms.TextBox();
             this.lbl_nome = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_idAluno = new System.Windows.Forms.TextBox();
             this.lbl_id = new System.Windows.Forms.Label();
-            this.tct_rua = new System.Windows.Forms.TextBox();
+            this.txt_rua = new System.Windows.Forms.TextBox();
             this.lbl_rua = new System.Windows.Forms.Label();
             this.lbl_bairro = new System.Windows.Forms.Label();
-            this.tct_bairro = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txt_bairro = new System.Windows.Forms.TextBox();
+            this.txt_cidade = new System.Windows.Forms.TextBox();
             this.lbl_cidade = new System.Windows.Forms.Label();
             this.txt_estado = new System.Windows.Forms.TextBox();
             this.lbl_estado = new System.Windows.Forms.Label();
@@ -57,14 +57,14 @@
             this.lbl_foto = new System.Windows.Forms.Label();
             this.btn_remover = new System.Windows.Forms.Button();
             this.btn_salvarmatricula = new System.Windows.Forms.Button();
-            this.txt_ptocurar = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btn_procurarId = new System.Windows.Forms.Button();
             this.gb_genero.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctb_foto)).BeginInit();
             this.SuspendLayout();
             // 
             // txt_telefone
             // 
+            this.txt_telefone.AcceptsTab = true;
             this.txt_telefone.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.txt_telefone.BackColor = System.Drawing.Color.White;
             this.txt_telefone.Cursor = System.Windows.Forms.Cursors.WaitCursor;
@@ -73,7 +73,6 @@
             this.txt_telefone.Name = "txt_telefone";
             this.txt_telefone.Size = new System.Drawing.Size(233, 26);
             this.txt_telefone.TabIndex = 15;
-            this.txt_telefone.Text = "111";
             // 
             // lbl_telefone
             // 
@@ -159,13 +158,13 @@
             // 
             // txt_nome
             // 
+            this.txt_nome.AcceptsTab = true;
             this.txt_nome.BackColor = System.Drawing.Color.White;
             this.txt_nome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_nome.Location = new System.Drawing.Point(154, 62);
             this.txt_nome.Name = "txt_nome";
             this.txt_nome.Size = new System.Drawing.Size(233, 26);
             this.txt_nome.TabIndex = 9;
-            this.txt_nome.Text = "teste";
             // 
             // lbl_nome
             // 
@@ -178,15 +177,16 @@
             this.lbl_nome.TabIndex = 8;
             this.lbl_nome.Text = "Nome completo:";
             // 
-            // textBox1
+            // txt_idAluno
             // 
-            this.textBox1.BackColor = System.Drawing.Color.White;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(154, 15);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(112, 26);
-            this.textBox1.TabIndex = 17;
-            this.textBox1.Text = "teste";
+            this.txt_idAluno.AcceptsTab = true;
+            this.txt_idAluno.BackColor = System.Drawing.Color.White;
+            this.txt_idAluno.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_idAluno.Location = new System.Drawing.Point(154, 15);
+            this.txt_idAluno.Name = "txt_idAluno";
+            this.txt_idAluno.Size = new System.Drawing.Size(112, 26);
+            this.txt_idAluno.TabIndex = 17;
+            this.txt_idAluno.TextChanged += new System.EventHandler(this.Txt_idAluno_TextChanged);
             // 
             // lbl_id
             // 
@@ -199,15 +199,15 @@
             this.lbl_id.TabIndex = 16;
             this.lbl_id.Text = "ID:";
             // 
-            // tct_rua
+            // txt_rua
             // 
-            this.tct_rua.BackColor = System.Drawing.Color.White;
-            this.tct_rua.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tct_rua.Location = new System.Drawing.Point(468, 15);
-            this.tct_rua.Name = "tct_rua";
-            this.tct_rua.Size = new System.Drawing.Size(233, 26);
-            this.tct_rua.TabIndex = 21;
-            this.tct_rua.Text = "teste";
+            this.txt_rua.AcceptsTab = true;
+            this.txt_rua.BackColor = System.Drawing.Color.White;
+            this.txt_rua.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_rua.Location = new System.Drawing.Point(468, 15);
+            this.txt_rua.Name = "txt_rua";
+            this.txt_rua.Size = new System.Drawing.Size(233, 26);
+            this.txt_rua.TabIndex = 21;
             // 
             // lbl_rua
             // 
@@ -231,25 +231,25 @@
             this.lbl_bairro.TabIndex = 18;
             this.lbl_bairro.Text = "Bairro:";
             // 
-            // tct_bairro
+            // txt_bairro
             // 
-            this.tct_bairro.BackColor = System.Drawing.Color.White;
-            this.tct_bairro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tct_bairro.Location = new System.Drawing.Point(468, 59);
-            this.tct_bairro.Name = "tct_bairro";
-            this.tct_bairro.Size = new System.Drawing.Size(233, 26);
-            this.tct_bairro.TabIndex = 22;
-            this.tct_bairro.Text = "teste";
+            this.txt_bairro.AcceptsTab = true;
+            this.txt_bairro.BackColor = System.Drawing.Color.White;
+            this.txt_bairro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_bairro.Location = new System.Drawing.Point(468, 59);
+            this.txt_bairro.Name = "txt_bairro";
+            this.txt_bairro.Size = new System.Drawing.Size(233, 26);
+            this.txt_bairro.TabIndex = 22;
             // 
-            // textBox2
+            // txt_cidade
             // 
-            this.textBox2.BackColor = System.Drawing.Color.White;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(468, 106);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(233, 26);
-            this.textBox2.TabIndex = 24;
-            this.textBox2.Text = "teste";
+            this.txt_cidade.AcceptsTab = true;
+            this.txt_cidade.BackColor = System.Drawing.Color.White;
+            this.txt_cidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_cidade.Location = new System.Drawing.Point(468, 106);
+            this.txt_cidade.Name = "txt_cidade";
+            this.txt_cidade.Size = new System.Drawing.Size(233, 26);
+            this.txt_cidade.TabIndex = 24;
             // 
             // lbl_cidade
             // 
@@ -264,13 +264,13 @@
             // 
             // txt_estado
             // 
+            this.txt_estado.AcceptsTab = true;
             this.txt_estado.BackColor = System.Drawing.Color.White;
             this.txt_estado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_estado.Location = new System.Drawing.Point(468, 154);
             this.txt_estado.Name = "txt_estado";
             this.txt_estado.Size = new System.Drawing.Size(233, 26);
             this.txt_estado.TabIndex = 26;
-            this.txt_estado.Text = "teste";
             // 
             // lbl_estado
             // 
@@ -285,13 +285,13 @@
             // 
             // txt_cep
             // 
+            this.txt_cep.AcceptsTab = true;
             this.txt_cep.BackColor = System.Drawing.Color.White;
             this.txt_cep.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_cep.Location = new System.Drawing.Point(469, 210);
             this.txt_cep.Name = "txt_cep";
             this.txt_cep.Size = new System.Drawing.Size(233, 26);
             this.txt_cep.TabIndex = 28;
-            this.txt_cep.Text = "teste";
             // 
             // lbl_cep
             // 
@@ -306,13 +306,13 @@
             // 
             // txt_numero
             // 
+            this.txt_numero.AcceptsTab = true;
             this.txt_numero.BackColor = System.Drawing.Color.White;
             this.txt_numero.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_numero.Location = new System.Drawing.Point(469, 263);
             this.txt_numero.Name = "txt_numero";
             this.txt_numero.Size = new System.Drawing.Size(233, 26);
             this.txt_numero.TabIndex = 30;
-            this.txt_numero.Text = "teste";
             // 
             // lbl_num
             // 
@@ -331,17 +331,18 @@
             this.btn_adicionarfotoaluno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_adicionarfotoaluno.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_adicionarfotoaluno.ForeColor = System.Drawing.Color.White;
-            this.btn_adicionarfotoaluno.Location = new System.Drawing.Point(16, 412);
+            this.btn_adicionarfotoaluno.Location = new System.Drawing.Point(63, 415);
             this.btn_adicionarfotoaluno.Name = "btn_adicionarfotoaluno";
             this.btn_adicionarfotoaluno.Size = new System.Drawing.Size(102, 28);
             this.btn_adicionarfotoaluno.TabIndex = 33;
             this.btn_adicionarfotoaluno.Text = "Inserir";
             this.btn_adicionarfotoaluno.UseVisualStyleBackColor = false;
+            this.btn_adicionarfotoaluno.Click += new System.EventHandler(this.Btn_adicionarfotoaluno_Click);
             // 
             // pctb_foto
             // 
             this.pctb_foto.BackColor = System.Drawing.Color.White;
-            this.pctb_foto.Location = new System.Drawing.Point(16, 311);
+            this.pctb_foto.Location = new System.Drawing.Point(63, 314);
             this.pctb_foto.Name = "pctb_foto";
             this.pctb_foto.Size = new System.Drawing.Size(102, 93);
             this.pctb_foto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -353,7 +354,7 @@
             this.lbl_foto.AutoSize = true;
             this.lbl_foto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_foto.ForeColor = System.Drawing.Color.White;
-            this.lbl_foto.Location = new System.Drawing.Point(12, 278);
+            this.lbl_foto.Location = new System.Drawing.Point(59, 281);
             this.lbl_foto.Name = "lbl_foto";
             this.lbl_foto.Size = new System.Drawing.Size(96, 20);
             this.lbl_foto.TabIndex = 31;
@@ -365,12 +366,13 @@
             this.btn_remover.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_remover.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_remover.ForeColor = System.Drawing.Color.White;
-            this.btn_remover.Location = new System.Drawing.Point(541, 398);
+            this.btn_remover.Location = new System.Drawing.Point(154, 474);
             this.btn_remover.Name = "btn_remover";
             this.btn_remover.Size = new System.Drawing.Size(128, 40);
             this.btn_remover.TabIndex = 35;
             this.btn_remover.Text = "Remover";
             this.btn_remover.UseVisualStyleBackColor = false;
+            this.btn_remover.Click += new System.EventHandler(this.Btn_remover_Click);
             // 
             // btn_salvarmatricula
             // 
@@ -378,47 +380,35 @@
             this.btn_salvarmatricula.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_salvarmatricula.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_salvarmatricula.ForeColor = System.Drawing.Color.White;
-            this.btn_salvarmatricula.Location = new System.Drawing.Point(694, 398);
+            this.btn_salvarmatricula.Location = new System.Drawing.Point(468, 474);
             this.btn_salvarmatricula.Name = "btn_salvarmatricula";
             this.btn_salvarmatricula.Size = new System.Drawing.Size(128, 40);
             this.btn_salvarmatricula.TabIndex = 34;
             this.btn_salvarmatricula.Text = "Salvar";
             this.btn_salvarmatricula.UseVisualStyleBackColor = false;
+            this.btn_salvarmatricula.Click += new System.EventHandler(this.Btn_salvarmatricula_Click);
             // 
-            // txt_ptocurar
+            // btn_procurarId
             // 
-            this.txt_ptocurar.BackColor = System.Drawing.Color.DarkTurquoise;
-            this.txt_ptocurar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.txt_ptocurar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_ptocurar.ForeColor = System.Drawing.Color.White;
-            this.txt_ptocurar.Location = new System.Drawing.Point(272, 15);
-            this.txt_ptocurar.Name = "txt_ptocurar";
-            this.txt_ptocurar.Size = new System.Drawing.Size(115, 26);
-            this.txt_ptocurar.TabIndex = 37;
-            this.txt_ptocurar.Text = "Procurar";
-            this.txt_ptocurar.UseVisualStyleBackColor = false;
+            this.btn_procurarId.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.btn_procurarId.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_procurarId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_procurarId.ForeColor = System.Drawing.Color.White;
+            this.btn_procurarId.Location = new System.Drawing.Point(272, 15);
+            this.btn_procurarId.Name = "btn_procurarId";
+            this.btn_procurarId.Size = new System.Drawing.Size(115, 26);
+            this.btn_procurarId.TabIndex = 37;
+            this.btn_procurarId.Text = "Procurar";
+            this.btn_procurarId.UseVisualStyleBackColor = false;
+            this.btn_procurarId.Click += new System.EventHandler(this.Txt_ptocurar_Click);
             // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.Green;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(393, 398);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(128, 40);
-            this.button2.TabIndex = 36;
-            this.button2.Text = "Salvar";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // Atualiza_Deleta_Aluno
+            // Atualiza_Deleta_AlunoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Navy;
-            this.ClientSize = new System.Drawing.Size(834, 450);
-            this.Controls.Add(this.txt_ptocurar);
-            this.Controls.Add(this.button2);
+            this.ClientSize = new System.Drawing.Size(835, 526);
+            this.Controls.Add(this.btn_procurarId);
             this.Controls.Add(this.btn_remover);
             this.Controls.Add(this.btn_salvarmatricula);
             this.Controls.Add(this.btn_adicionarfotoaluno);
@@ -430,13 +420,13 @@
             this.Controls.Add(this.lbl_cep);
             this.Controls.Add(this.txt_estado);
             this.Controls.Add(this.lbl_estado);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txt_cidade);
             this.Controls.Add(this.lbl_cidade);
-            this.Controls.Add(this.tct_bairro);
-            this.Controls.Add(this.tct_rua);
+            this.Controls.Add(this.txt_bairro);
+            this.Controls.Add(this.txt_rua);
             this.Controls.Add(this.lbl_rua);
             this.Controls.Add(this.lbl_bairro);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txt_idAluno);
             this.Controls.Add(this.lbl_id);
             this.Controls.Add(this.txt_telefone);
             this.Controls.Add(this.lbl_telefone);
@@ -446,7 +436,7 @@
             this.Controls.Add(this.lbl_nascimento);
             this.Controls.Add(this.txt_nome);
             this.Controls.Add(this.lbl_nome);
-            this.Name = "Atualiza_Deleta_Aluno";
+            this.Name = "Atualiza_Deleta_AlunoForm";
             this.Text = "Atualiza_Deleta_Aluno";
             this.Load += new System.EventHandler(this.Atualiza_Deleta_Aluno_Load);
             this.gb_genero.ResumeLayout(false);
@@ -458,37 +448,35 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox txt_telefone;
         private System.Windows.Forms.Label lbl_telefone;
         private System.Windows.Forms.GroupBox gb_genero;
-        private System.Windows.Forms.RadioButton rd_btn_generoFem;
-        private System.Windows.Forms.RadioButton rd_btn_generoMasc;
         private System.Windows.Forms.Label lbl_genero;
-        private System.Windows.Forms.DateTimePicker dtBox_nascimento;
         private System.Windows.Forms.Label lbl_nascimento;
-        private System.Windows.Forms.TextBox txt_nome;
         private System.Windows.Forms.Label lbl_nome;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label lbl_id;
-        private System.Windows.Forms.TextBox tct_rua;
         private System.Windows.Forms.Label lbl_rua;
         private System.Windows.Forms.Label lbl_bairro;
-        private System.Windows.Forms.TextBox tct_bairro;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label lbl_cidade;
-        private System.Windows.Forms.TextBox txt_estado;
         private System.Windows.Forms.Label lbl_estado;
-        private System.Windows.Forms.TextBox txt_cep;
         private System.Windows.Forms.Label lbl_cep;
-        private System.Windows.Forms.TextBox txt_numero;
         private System.Windows.Forms.Label lbl_num;
         private System.Windows.Forms.Button btn_adicionarfotoaluno;
-        private System.Windows.Forms.PictureBox pctb_foto;
         private System.Windows.Forms.Label lbl_foto;
         private System.Windows.Forms.Button btn_remover;
         private System.Windows.Forms.Button btn_salvarmatricula;
-        private System.Windows.Forms.Button txt_ptocurar;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_procurarId;
+        internal System.Windows.Forms.TextBox txt_telefone;
+        internal System.Windows.Forms.RadioButton rd_btn_generoMasc;
+        internal System.Windows.Forms.PictureBox pctb_foto;
+        internal System.Windows.Forms.RadioButton rd_btn_generoFem;
+        internal System.Windows.Forms.DateTimePicker dtBox_nascimento;
+        internal System.Windows.Forms.TextBox txt_nome;
+        internal System.Windows.Forms.TextBox txt_rua;
+        internal System.Windows.Forms.TextBox txt_bairro;
+        internal System.Windows.Forms.TextBox txt_cidade;
+        internal System.Windows.Forms.TextBox txt_estado;
+        internal System.Windows.Forms.TextBox txt_cep;
+        internal System.Windows.Forms.TextBox txt_numero;
+        internal System.Windows.Forms.TextBox txt_idAluno;
     }
 }
