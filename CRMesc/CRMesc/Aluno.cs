@@ -14,8 +14,8 @@ namespace CRMesc
         Banco db = new Banco();
         public bool inserirAluno(String nome, DateTime nascimento, String telefone, String genero, MemoryStream foto, String cep, String rua, String bairro, int numero, String cidade, String estado)
         {
-            SqlCommand cmd = new SqlCommand("INSERT INTO ALUNO( nome, nascimento, genero, telefone, foto, cep, rua, bairro, cidade, uf)" +
-                "VALUES(@nm,@nsc,@gnr,@tel,@fot,@cp,@ru,@ba,@ci,@uf)", db.conectar());
+            SqlCommand cmd = new SqlCommand("INSERT INTO ALUNO( nome, nascimento, genero, telefone, foto, cep, rua, bairro, numero, cidade, uf)" +
+                "VALUES(@nm,@nsc,@gnr,@tel,@fot,@cp,@ru,@ba,@nu,@ci,@uf)", db.conectar());
             
             cmd.Parameters.Add("@nm", SqlDbType.VarChar).Value = nome;
             cmd.Parameters.Add("@nsc", SqlDbType.Date).Value = nascimento;
@@ -54,7 +54,7 @@ namespace CRMesc
         public bool atualizarAluno(int idAluno, String nome, DateTime nascimento, String telefone, String genero, MemoryStream foto, String cep, String rua, String bairro, int numero, String cidade, String estado)
         {
             SqlCommand cmd = new SqlCommand("UPDATE ALUNO SET nome = @no, nascimento = @nsc, genero = @gnr, telefone = @tel,"+
-                ", foto = @fot, cep = @cp, rua = @ru,bairro = @ba, numero= @nu, uf = @est  ) WHERE ID = @ID", db.conectar());
+                "foto = @fot, cep = @cp, rua = @ru,bairro = @ba, numero= @nu, cidade = @ci uf = @est   WHERE ID = @id", db.conectar());
             cmd.Parameters.Add("@id", SqlDbType.Int).Value = idAluno;
             cmd.Parameters.Add("@no", SqlDbType.VarChar).Value = nome;
             cmd.Parameters.Add("@nsc", SqlDbType.Date).Value = nascimento;
@@ -65,6 +65,7 @@ namespace CRMesc
             cmd.Parameters.Add("@ru", SqlDbType.VarChar).Value = rua;
             cmd.Parameters.Add("@ba", SqlDbType.VarChar).Value = bairro;
             cmd.Parameters.Add("@nu", SqlDbType.VarChar).Value = numero;
+            cmd.Parameters.Add("@ci", SqlDbType.VarChar).Value = bairro;
             cmd.Parameters.Add("@est", SqlDbType.VarChar).Value = estado;
 
             db.conectar();
@@ -84,7 +85,7 @@ namespace CRMesc
         //funcao para deletar aluno
         public bool deletarAluno(int idAluno)
         {
-            SqlCommand cmd = new SqlCommand("DELETE FROM ID = @ID", db.conectar());
+            SqlCommand cmd = new SqlCommand("DELETE FROM ALUNO WHERE ID = @id", db.conectar());
             cmd.Parameters.Add("@id", SqlDbType.Int).Value = idAluno;
 
             db.conectar();

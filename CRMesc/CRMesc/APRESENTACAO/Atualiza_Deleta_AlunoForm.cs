@@ -77,10 +77,10 @@ namespace CRMesc
         }
 
 
-        private void Button2_Click(object sender, EventArgs e)
+       /* private void Button2_Click(object sender, EventArgs e)
         {
 
-        }
+        }*/
 
         private void Txt_ptocurar_Click(object sender, EventArgs e)
         {
@@ -94,7 +94,7 @@ namespace CRMesc
                 txt_idAluno.Text = tabela.Rows[0]["Id"].ToString();
                 txt_nome.Text = tabela.Rows[1]["Nome"].ToString();
                 dtBox_nascimento.Value = (DateTime)tabela.Rows[2]["Nascimento"];
-                if (tabela.Rows[0]["Genero"].ToString() == "Feminino")
+                if (tabela.Rows[3]["Genero"].ToString() == "Feminino")
                 {
                     rd_btn_generoFem.Checked = true;
                 }
@@ -110,8 +110,10 @@ namespace CRMesc
 
                 txt_cep.Text = tabela.Rows[6]["Cep"].ToString();
                 txt_rua.Text = tabela.Rows[7]["Rua"].ToString();
-
-
+                txt_bairro.Text = tabela.Rows[8]["Bairro"].ToString();
+                txt_numero.Text = tabela.Rows[9]["Número"].ToString();
+                txt_cidade.Text = tabela.Rows[10]["Cidade"].ToString();
+                txt_estado.Text = tabela.Rows[11]["UF"].ToString();
             }
         }
 

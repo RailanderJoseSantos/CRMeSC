@@ -48,7 +48,7 @@ namespace CRMesc
             String cep = txt_cep.Text;
             String rua = txt_rua.Text;
             String bairro = txt_bairro.Text;
-            int numero = int.Parse(txt_numero.Text);
+            int numero = Convert.ToInt32(txt_numero.Text);
             String cidade = txt_cidade.Text;
             String uf = txt_estado.Text;
 

@@ -43,7 +43,7 @@ namespace CRMesc
             //duplo clique: editar/remover
             Atualiza_Deleta_AlunoForm atualizaDeleta = new Atualiza_Deleta_AlunoForm();
 
-            atualizaDeleta.txt_idAluno.Text = grid_alunos.CurrentRow.Cells[0].ToString();
+            atualizaDeleta.txt_idAluno.Text = Convert.ToString( grid_alunos.CurrentRow.Cells[0].Value);
             atualizaDeleta.txt_nome.Text = grid_alunos.CurrentRow.Cells[1].Value.ToString();
             atualizaDeleta.dtBox_nascimento.Value =(DateTime) grid_alunos.CurrentRow.Cells[2].Value;
             //genero
@@ -71,6 +71,7 @@ namespace CRMesc
         private void Btn_Atualizar_Click(object sender, EventArgs e)
         {
             //atualiza a grid
+
         }
     }
 }
