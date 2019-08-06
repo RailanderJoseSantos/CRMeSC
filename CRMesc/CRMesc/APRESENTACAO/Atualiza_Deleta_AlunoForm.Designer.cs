@@ -187,6 +187,7 @@
             this.txt_idAluno.Size = new System.Drawing.Size(112, 26);
             this.txt_idAluno.TabIndex = 17;
             this.txt_idAluno.TextChanged += new System.EventHandler(this.Txt_idAluno_TextChanged_1);
+            this.txt_idAluno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_idAluno_KeyPress);
             // 
             // lbl_id
             // 

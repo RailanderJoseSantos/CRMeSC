@@ -185,6 +185,7 @@ namespace CRMesc
                     txt_numero.Clear();
                     txt_cidade.Clear();
                     txt_estado.Clear();
+                    this.Close();
                 }
                 else
                 {
@@ -197,7 +198,7 @@ namespace CRMesc
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) )//verifica se é qlq coisa diferente de nmrs
             {
-
+                e.Handled = true;
             }
         }
 
@@ -240,7 +241,7 @@ namespace CRMesc
                 MessageBox.Show("O ID informado não existe no banco", "Erro ao Deletar aluno", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
+        // somente numeros ao clicar no buscar
         private void Txt_idAluno_TextChanged_1(object sender, EventArgs e)
         {
 
