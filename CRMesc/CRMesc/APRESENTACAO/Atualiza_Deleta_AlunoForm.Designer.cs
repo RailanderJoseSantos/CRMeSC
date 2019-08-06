@@ -186,7 +186,7 @@
             this.txt_idAluno.Name = "txt_idAluno";
             this.txt_idAluno.Size = new System.Drawing.Size(112, 26);
             this.txt_idAluno.TabIndex = 17;
-            this.txt_idAluno.TextChanged += new System.EventHandler(this.Txt_idAluno_TextChanged);
+            this.txt_idAluno.TextChanged += new System.EventHandler(this.Txt_idAluno_TextChanged_1);
             // 
             // lbl_id
             // 
@@ -400,7 +400,7 @@
             this.btn_procurarId.TabIndex = 37;
             this.btn_procurarId.Text = "Procurar";
             this.btn_procurarId.UseVisualStyleBackColor = false;
-            this.btn_procurarId.Click += new System.EventHandler(this.Txt_ptocurar_Click);
+            this.btn_procurarId.Click += new System.EventHandler(this.Btn_procurarId_Click);
             // 
             // Atualiza_Deleta_AlunoForm
             // 

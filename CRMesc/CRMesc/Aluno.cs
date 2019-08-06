@@ -54,7 +54,7 @@ namespace CRMesc
         public bool atualizarAluno(int idAluno, String nome, DateTime nascimento, String telefone, String genero, MemoryStream foto, String cep, String rua, String bairro, int numero, String cidade, String estado)
         {
             SqlCommand cmd = new SqlCommand("UPDATE ALUNO SET nome = @no, nascimento = @nsc, genero = @gnr, telefone = @tel,"+
-                "foto = @fot, cep = @cp, rua = @ru,bairro = @ba, numero= @nu, cidade = @ci uf = @est   WHERE ID = @id", db.conectar());
+                "foto = @fot, cep = @cp, rua = @ru,bairro = @ba, numero= @nu, cidade = @ci, uf = @est   WHERE ID = @id", db.conectar());
             cmd.Parameters.Add("@id", SqlDbType.Int).Value = idAluno;
             cmd.Parameters.Add("@no", SqlDbType.VarChar).Value = nome;
             cmd.Parameters.Add("@nsc", SqlDbType.Date).Value = nascimento;
@@ -65,7 +65,7 @@ namespace CRMesc
             cmd.Parameters.Add("@ru", SqlDbType.VarChar).Value = rua;
             cmd.Parameters.Add("@ba", SqlDbType.VarChar).Value = bairro;
             cmd.Parameters.Add("@nu", SqlDbType.VarChar).Value = numero;
-            cmd.Parameters.Add("@ci", SqlDbType.VarChar).Value = bairro;
+            cmd.Parameters.Add("@ci", SqlDbType.VarChar).Value = cidade;
             cmd.Parameters.Add("@est", SqlDbType.VarChar).Value = estado;
 
             db.conectar();

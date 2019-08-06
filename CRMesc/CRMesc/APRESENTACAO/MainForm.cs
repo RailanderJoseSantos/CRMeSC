@@ -40,7 +40,8 @@ namespace CRMesc.APRESENTACAO
 
         private void EditarRemoverToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Atualiza_Deleta_AlunoForm atualzaDeleta = new Atualiza_Deleta_AlunoForm();
+            atualzaDeleta.Show(this);
         }
 
         private void MSFToolStripMenuItem_Click(object sender, EventArgs e)

@@ -84,37 +84,7 @@ namespace CRMesc
 
         private void Txt_ptocurar_Click(object sender, EventArgs e)
         {
-            Aluno aluno = new Aluno();
-            //buscar  Aluno por id
-            int idAluno = Convert.ToInt32(txt_idAluno.Text);
-            SqlCommand cmd = new SqlCommand("SELECT ID, NOME, NASCIMENTO, GENERO, TELEFONE, FOTO, CEP, RUA, BAIRRO, NUMERO, CIDADE, UF FROM ALUNO WHERE ID = "+idAluno);
-            DataTable tabela = aluno.getAlunos(cmd);
-            if(tabela.Rows.Count > 0)
-            {
-                txt_idAluno.Text = tabela.Rows[0]["Id"].ToString();
-                txt_nome.Text = tabela.Rows[1]["Nome"].ToString();
-                dtBox_nascimento.Value = (DateTime)tabela.Rows[2]["Nascimento"];
-                if (tabela.Rows[3]["Genero"].ToString() == "Feminino")
-                {
-                    rd_btn_generoFem.Checked = true;
-                }
-                else
-                {
-                    rd_btn_generoMasc.Checked = true;
-                }
-                txt_telefone.Text = tabela.Rows[4]["Telefone"].ToString();
-
-                byte[] foto =(byte[]) tabela.Rows[5]["Foto"];
-                MemoryStream imagem = new MemoryStream();
-                pctb_foto.Image = Image.FromStream(imagem);
-
-                txt_cep.Text = tabela.Rows[6]["Cep"].ToString();
-                txt_rua.Text = tabela.Rows[7]["Rua"].ToString();
-                txt_bairro.Text = tabela.Rows[8]["Bairro"].ToString();
-                txt_numero.Text = tabela.Rows[9]["Número"].ToString();
-                txt_cidade.Text = tabela.Rows[10]["Cidade"].ToString();
-                txt_estado.Text = tabela.Rows[11]["UF"].ToString();
-            }
+     
         }
 
         private void Btn_adicionarfotoaluno_Click(object sender, EventArgs e)
@@ -207,15 +177,73 @@ namespace CRMesc
                     txt_idAluno.Clear();
                     txt_nome.Clear();
                     txt_telefone.Clear();
-                    txt_bairro.Clear();
                     dtBox_nascimento.Value = DateTime.Now;
                     pctb_foto.Image = null;
+                    txt_cep.Clear();
+                    txt_rua.Clear();
+                    txt_bairro.Clear();
+                    txt_numero.Clear();
+                    txt_cidade.Clear();
+                    txt_estado.Clear();
                 }
                 else
                 {
                     MessageBox.Show("Matrícula não excluída", "Excluir matricula", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+        // aceitar somente numeros na caixa de texto
+        private void Txt_idAluno_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) )//verifica se é qlq coisa diferente de nmrs
+            {
+
+            }
+        }
+
+        private void Btn_procurarId_Click(object sender, EventArgs e)
+        {
+
+            Aluno aluno = new Aluno();
+            //buscar  Aluno por id
+            int idAluno = Convert.ToInt32(txt_idAluno.Text);
+            SqlCommand cmd = new SqlCommand("SELECT ID, NOME, NASCIMENTO, GENERO, TELEFONE, FOTO, CEP, RUA, BAIRRO, NUMERO, CIDADE, UF FROM ALUNO WHERE ID = " + idAluno);
+            DataTable tabela = aluno.getAlunos(cmd);
+            if (tabela.Rows.Count > 0)
+            {
+                txt_idAluno.Text = tabela.Rows[0]["Id"].ToString();
+                txt_nome.Text = tabela.Rows[0]["Nome"].ToString();
+                dtBox_nascimento.Value = (DateTime)tabela.Rows[0]["Nascimento"];
+                if (tabela.Rows[0]["Genero"].ToString() == "Feminino")
+                {
+                    rd_btn_generoFem.Checked = true;
+                }
+                else
+                {
+                    rd_btn_generoMasc.Checked = true;
+                }
+                txt_telefone.Text = tabela.Rows[0]["Telefone"].ToString();
+
+                byte[] foto = (byte[])tabela.Rows[0]["Foto"];
+                MemoryStream imagem = new MemoryStream(foto);
+                pctb_foto.Image = Image.FromStream(imagem);
+
+                txt_cep.Text = tabela.Rows[0]["Cep"].ToString();
+                txt_rua.Text = tabela.Rows[0]["Rua"].ToString();
+                txt_bairro.Text = tabela.Rows[0]["Bairro"].ToString();
+                txt_numero.Text = tabela.Rows[0]["Numero"].ToString();
+                txt_cidade.Text = tabela.Rows[0]["Cidade"].ToString();
+                txt_estado.Text = tabela.Rows[0]["UF"].ToString();
+            }
+            else
+            {
+                MessageBox.Show("O ID informado não existe no banco", "Erro ao Deletar aluno", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void Txt_idAluno_TextChanged_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
