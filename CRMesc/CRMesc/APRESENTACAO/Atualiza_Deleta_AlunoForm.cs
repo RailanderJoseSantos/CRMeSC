@@ -25,62 +25,63 @@ namespace CRMesc
 
         private void Btn_salvarmatricula_Click(object sender, EventArgs e)
         {
-            // salvando atualização do aluno
-            Aluno aluno = new Aluno();
-            int idAluno = Convert.ToInt32(txt_idAluno.Text);
-            String nome = txt_nome.Text;
-            DateTime nascimento = dtBox_nascimento.Value;
-            String telefone = txt_telefone.Text;
-            String genero = "Masculino";
-            String cep = txt_cep.Text;
-            String rua = txt_rua.Text;
-            String bairro = txt_bairro.Text;
-            int numero = int.Parse(txt_numero.Text);
-            String cidade = txt_cidade.Text;
-            String uf = txt_estado.Text;
-
-            if (rd_btn_generoFem.Checked)
+            try
             {
-                genero = "Feminino";
-            }
+                // salvando atualização do aluno
+                Aluno aluno = new Aluno();
+                int idAluno = Convert.ToInt32(txt_idAluno.Text);
+                String nome = txt_nome.Text;
+                DateTime nascimento = dtBox_nascimento.Value;
+                String telefone = txt_telefone.Text;
+                String genero = "Masculino";
+                String cep = txt_cep.Text;
+                String rua = txt_rua.Text;
+                String bairro = txt_bairro.Text;
+                int numero = int.Parse(txt_numero.Text);
+                String cidade = txt_cidade.Text;
+                String uf = txt_estado.Text;
 
-            MemoryStream fot = new MemoryStream();
-            // checando idade de aluno ( 5 a 100 anos)
-            int ano_nasc = dtBox_nascimento.Value.Year;
-            int ano_atual = DateTime.Now.Year;
-            if (limitesCaracteresAceitos())
-            {
-                if ((ano_atual - ano_nasc) < 5 || (ano_atual - ano_nasc) > 100)
+                if (rd_btn_generoFem.Checked)
                 {
-                    MessageBox.Show("O aluno deve ter entre 5 e 100 anos", "Data de ascimento inválida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    genero = "Feminino";
                 }
-                else // adicionar aluno no banco
-                if (verificaCampoVazio())
+
+                MemoryStream fot = new MemoryStream();
+                // checando idade de aluno ( 5 a 100 anos)
+                int ano_nasc = dtBox_nascimento.Value.Year;
+                int ano_atual = DateTime.Now.Year;
+                if (limitesCaracteresAceitos())
                 {
-                    pctb_foto.Image.Save(fot, pctb_foto.Image.RawFormat);
-                    if (aluno.atualizarAluno(idAluno, nome, nascimento, telefone, genero, fot, cep, rua, bairro, numero, cidade, uf))
+                    if ((ano_atual - ano_nasc) < 5 || (ano_atual - ano_nasc) > 100)
                     {
-                        MessageBox.Show("Matrícula atualizada ", "Atualização de matrícula", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.Close();
+                        MessageBox.Show("O aluno deve ter entre 5 e 100 anos", "Data de ascimento inválida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else // adicionar aluno no banco
+                    if (verificaCampoVazio())
+                    {
+                        pctb_foto.Image.Save(fot, pctb_foto.Image.RawFormat);
+                        if (aluno.atualizarAluno(idAluno, nome, nascimento, telefone, genero, fot, cep, rua, bairro, numero, cidade, uf))
+                        {
+                            MessageBox.Show("Matrícula atualizada ", "Atualização de matrícula", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Erro ", "Atualização de aluno", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            // Endereco endereco = new Endereco();
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Erro ", "Atualização de aluno", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        // Endereco endereco = new Endereco();
+                        MessageBox.Show("Preencha todos os campos ", "Atualização de aluno", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
                 }
-                else
-                {
-                    MessageBox.Show("Preencha todos os campos ", "Atualização de aluno", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
+            } catch
+            {
+                MessageBox.Show("Insira um ID na caixa de texto!", "Atualizar matrícula", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-
-       /* private void Button2_Click(object sender, EventArgs e)
-        {
-
-        }*/
+            }
+        
 
         private void Txt_ptocurar_Click(object sender, EventArgs e)
         {
@@ -166,33 +167,41 @@ namespace CRMesc
         private void Btn_remover_Click(object sender, EventArgs e)
         {
             // deletar aluno
-            Aluno aluno = new Aluno();
-            if (MessageBox.Show("Você realmente deseja deletar a matrícula do aluno? ", "Deletar aluno", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            try
             {
                 int idAluno = Convert.ToInt32(txt_idAluno.Text);
-                if (aluno.deletarAluno(idAluno))
+                Aluno aluno = new Aluno();
+                if (MessageBox.Show("Você realmente deseja deletar a matrícula do aluno? ", "Deletar aluno", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    MessageBox.Show("Matrícula excluída", "Excluir matricula", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //limpa textbox
-                    txt_idAluno.Clear();
-                    txt_nome.Clear();
-                    txt_telefone.Clear();
-                    dtBox_nascimento.Value = DateTime.Now;
-                    pctb_foto.Image = null;
-                    txt_cep.Clear();
-                    txt_rua.Clear();
-                    txt_bairro.Clear();
-                    txt_numero.Clear();
-                    txt_cidade.Clear();
-                    txt_estado.Clear();
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Matrícula não excluída", "Excluir matricula", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (aluno.deletarAluno(idAluno))
+                    {
+                        MessageBox.Show("Matrícula excluída", "Excluir matricula", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //limpa textbox
+                        txt_idAluno.Clear();
+                        txt_nome.Clear();
+                        txt_telefone.Clear();
+                        dtBox_nascimento.Value = DateTime.Now;
+                        pctb_foto.Image = null;
+                        txt_cep.Clear();
+                        txt_rua.Clear();
+                        txt_bairro.Clear();
+                        txt_numero.Clear();
+                        txt_cidade.Clear();
+                        txt_estado.Clear();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Insira um ID na caixa de texto!", "ID Inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    }
                 }
             }
+            catch 
+            {
+                MessageBox.Show("Insira um ID na caixa de texto!", "Deletar matrícula", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+        
         // aceitar somente numeros na caixa de texto
         private void Txt_idAluno_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -205,7 +214,8 @@ namespace CRMesc
         private void Btn_procurarId_Click(object sender, EventArgs e)
         {
 
-            Aluno aluno = new Aluno();
+           try{
+                 Aluno aluno = new Aluno();
             //buscar  Aluno por id
             int idAluno = Convert.ToInt32(txt_idAluno.Text);
             SqlCommand cmd = new SqlCommand("SELECT ID, NOME, NASCIMENTO, GENERO, TELEFONE, FOTO, CEP, RUA, BAIRRO, NUMERO, CIDADE, UF FROM ALUNO WHERE ID = " + idAluno);
@@ -238,7 +248,10 @@ namespace CRMesc
             }
             else
             {
-                MessageBox.Show("O ID informado não existe no banco", "Erro ao Deletar aluno", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("O ID informado não existe no banco", "Erro ao Deletar aluno", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+           }catch{
+                  MessageBox.Show("Insira um ID na caixa de texto!","ID Inválido",MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         // somente numeros ao clicar no buscar

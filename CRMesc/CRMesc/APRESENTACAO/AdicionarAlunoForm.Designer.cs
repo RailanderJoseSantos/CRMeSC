@@ -36,25 +36,26 @@
             this.gb_genero = new System.Windows.Forms.GroupBox();
             this.rd_btn_generoFem = new System.Windows.Forms.RadioButton();
             this.rd_btn_generoMasc = new System.Windows.Forms.RadioButton();
-            this.txt_telefone = new System.Windows.Forms.TextBox();
-            this.lbl_telefone = new System.Windows.Forms.Label();
             this.lbl_foto = new System.Windows.Forms.Label();
             this.pctb_foto = new System.Windows.Forms.PictureBox();
             this.btn_adicionarfotoaluno = new System.Windows.Forms.Button();
             this.btn_salvarmatricula = new System.Windows.Forms.Button();
             this.btn_cancelarMatricula = new System.Windows.Forms.Button();
-            this.txt_cep = new System.Windows.Forms.TextBox();
-            this.lbl_cep = new System.Windows.Forms.Label();
-            this.txt_rua = new System.Windows.Forms.TextBox();
-            this.lbl_rua = new System.Windows.Forms.Label();
-            this.txt_bairro = new System.Windows.Forms.TextBox();
-            this.lbl_bairro = new System.Windows.Forms.Label();
-            this.txt_cidade = new System.Windows.Forms.TextBox();
-            this.lbl_cidade = new System.Windows.Forms.Label();
-            this.txt_estado = new System.Windows.Forms.TextBox();
-            this.lbl_estado = new System.Windows.Forms.Label();
-            this.txt_numero = new System.Windows.Forms.TextBox();
-            this.lbl_numero = new System.Windows.Forms.Label();
+            this.label_CadastraEndereco = new System.Windows.Forms.Label();
+            this.button_buscaEndereco = new System.Windows.Forms.Button();
+            this.button_Anexar = new System.Windows.Forms.Button();
+            this.textBoxidEndereco = new System.Windows.Forms.TextBox();
+            this.labeL_idEndereco = new System.Windows.Forms.Label();
+            this.textBox_IdResponsavel = new System.Windows.Forms.TextBox();
+            this.label_reponsavelAluno = new System.Windows.Forms.Label();
+            this.label_idResponsavel = new System.Windows.Forms.Label();
+            this.button_cadastraResponsavel = new System.Windows.Forms.Button();
+            this.button_vincularIdResponsavel = new System.Windows.Forms.Button();
+            this.buttonVinculaIdTel = new System.Windows.Forms.Button();
+            this.label_idTelefone = new System.Windows.Forms.Label();
+            this.button_telefone = new System.Windows.Forms.Button();
+            this.textBox_idtelefone = new System.Windows.Forms.TextBox();
+            this.label_telefone = new System.Windows.Forms.Label();
             this.gb_genero.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctb_foto)).BeginInit();
             this.SuspendLayout();
@@ -64,7 +65,7 @@
             this.lbl_nome.AutoSize = true;
             this.lbl_nome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_nome.ForeColor = System.Drawing.Color.White;
-            this.lbl_nome.Location = new System.Drawing.Point(12, 24);
+            this.lbl_nome.Location = new System.Drawing.Point(157, 61);
             this.lbl_nome.Name = "lbl_nome";
             this.lbl_nome.Size = new System.Drawing.Size(138, 20);
             this.lbl_nome.TabIndex = 0;
@@ -74,9 +75,9 @@
             // 
             this.txt_nome.AcceptsTab = true;
             this.txt_nome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_nome.Location = new System.Drawing.Point(156, 21);
+            this.txt_nome.Location = new System.Drawing.Point(301, 58);
             this.txt_nome.Name = "txt_nome";
-            this.txt_nome.Size = new System.Drawing.Size(233, 26);
+            this.txt_nome.Size = new System.Drawing.Size(260, 26);
             this.txt_nome.TabIndex = 1;
             this.txt_nome.Text = "Morgana Aparecida da Silva";
             // 
@@ -85,7 +86,7 @@
             this.lbl_nascimento.AutoSize = true;
             this.lbl_nascimento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_nascimento.ForeColor = System.Drawing.Color.White;
-            this.lbl_nascimento.Location = new System.Drawing.Point(51, 68);
+            this.lbl_nascimento.Location = new System.Drawing.Point(196, 114);
             this.lbl_nascimento.Name = "lbl_nascimento";
             this.lbl_nascimento.Size = new System.Drawing.Size(99, 20);
             this.lbl_nascimento.TabIndex = 2;
@@ -96,9 +97,9 @@
             this.dtBox_nascimento.Checked = false;
             this.dtBox_nascimento.CustomFormat = "dd/MM/yyyy";
             this.dtBox_nascimento.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtBox_nascimento.Location = new System.Drawing.Point(156, 68);
+            this.dtBox_nascimento.Location = new System.Drawing.Point(301, 114);
             this.dtBox_nascimento.Name = "dtBox_nascimento";
-            this.dtBox_nascimento.Size = new System.Drawing.Size(233, 20);
+            this.dtBox_nascimento.Size = new System.Drawing.Size(260, 20);
             this.dtBox_nascimento.TabIndex = 3;
             this.dtBox_nascimento.Value = new System.DateTime(2019, 8, 1, 0, 0, 0, 0);
             // 
@@ -107,7 +108,7 @@
             this.lbl_genero.AutoSize = true;
             this.lbl_genero.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_genero.ForeColor = System.Drawing.Color.White;
-            this.lbl_genero.Location = new System.Drawing.Point(76, 175);
+            this.lbl_genero.Location = new System.Drawing.Point(221, 186);
             this.lbl_genero.Name = "lbl_genero";
             this.lbl_genero.Size = new System.Drawing.Size(74, 20);
             this.lbl_genero.TabIndex = 4;
@@ -118,9 +119,9 @@
             this.gb_genero.Controls.Add(this.rd_btn_generoFem);
             this.gb_genero.Controls.Add(this.rd_btn_generoMasc);
             this.gb_genero.ForeColor = System.Drawing.Color.White;
-            this.gb_genero.Location = new System.Drawing.Point(156, 161);
+            this.gb_genero.Location = new System.Drawing.Point(301, 166);
             this.gb_genero.Name = "gb_genero";
-            this.gb_genero.Size = new System.Drawing.Size(233, 40);
+            this.gb_genero.Size = new System.Drawing.Size(260, 40);
             this.gb_genero.TabIndex = 5;
             this.gb_genero.TabStop = false;
             this.gb_genero.Text = "Sexo";
@@ -129,7 +130,7 @@
             // 
             this.rd_btn_generoFem.AutoSize = true;
             this.rd_btn_generoFem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rd_btn_generoFem.Location = new System.Drawing.Point(108, 14);
+            this.rd_btn_generoFem.Location = new System.Drawing.Point(152, 14);
             this.rd_btn_generoFem.Name = "rd_btn_generoFem";
             this.rd_btn_generoFem.Size = new System.Drawing.Size(81, 20);
             this.rd_btn_generoFem.TabIndex = 1;
@@ -141,7 +142,7 @@
             this.rd_btn_generoMasc.AutoSize = true;
             this.rd_btn_generoMasc.Checked = true;
             this.rd_btn_generoMasc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rd_btn_generoMasc.Location = new System.Drawing.Point(15, 14);
+            this.rd_btn_generoMasc.Location = new System.Drawing.Point(24, 14);
             this.rd_btn_generoMasc.Name = "rd_btn_generoMasc";
             this.rd_btn_generoMasc.Size = new System.Drawing.Size(87, 20);
             this.rd_btn_generoMasc.TabIndex = 0;
@@ -149,33 +150,12 @@
             this.rd_btn_generoMasc.Text = "Masculino";
             this.rd_btn_generoMasc.UseVisualStyleBackColor = true;
             // 
-            // txt_telefone
-            // 
-            this.txt_telefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_telefone.Location = new System.Drawing.Point(156, 119);
-            this.txt_telefone.Name = "txt_telefone";
-            this.txt_telefone.Size = new System.Drawing.Size(233, 26);
-            this.txt_telefone.TabIndex = 7;
-            this.txt_telefone.Text = "(31)988604909";
-            // 
-            // lbl_telefone
-            // 
-            this.lbl_telefone.AutoSize = true;
-            this.lbl_telefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_telefone.ForeColor = System.Drawing.Color.White;
-            this.lbl_telefone.Location = new System.Drawing.Point(66, 119);
-            this.lbl_telefone.Name = "lbl_telefone";
-            this.lbl_telefone.Size = new System.Drawing.Size(84, 20);
-            this.lbl_telefone.TabIndex = 6;
-            this.lbl_telefone.Text = "Telefone:";
-            this.lbl_telefone.Click += new System.EventHandler(this.Lbl_telefone_Click);
-            // 
             // lbl_foto
             // 
             this.lbl_foto.AutoSize = true;
             this.lbl_foto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_foto.ForeColor = System.Drawing.Color.White;
-            this.lbl_foto.Location = new System.Drawing.Point(54, 258);
+            this.lbl_foto.Location = new System.Drawing.Point(12, 9);
             this.lbl_foto.Name = "lbl_foto";
             this.lbl_foto.Size = new System.Drawing.Size(96, 20);
             this.lbl_foto.TabIndex = 10;
@@ -184,9 +164,9 @@
             // pctb_foto
             // 
             this.pctb_foto.BackColor = System.Drawing.Color.White;
-            this.pctb_foto.Location = new System.Drawing.Point(156, 251);
+            this.pctb_foto.Location = new System.Drawing.Point(16, 32);
             this.pctb_foto.Name = "pctb_foto";
-            this.pctb_foto.Size = new System.Drawing.Size(116, 100);
+            this.pctb_foto.Size = new System.Drawing.Size(116, 126);
             this.pctb_foto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pctb_foto.TabIndex = 11;
             this.pctb_foto.TabStop = false;
@@ -198,7 +178,7 @@
             this.btn_adicionarfotoaluno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_adicionarfotoaluno.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_adicionarfotoaluno.ForeColor = System.Drawing.Color.White;
-            this.btn_adicionarfotoaluno.Location = new System.Drawing.Point(156, 359);
+            this.btn_adicionarfotoaluno.Location = new System.Drawing.Point(16, 166);
             this.btn_adicionarfotoaluno.Name = "btn_adicionarfotoaluno";
             this.btn_adicionarfotoaluno.Size = new System.Drawing.Size(102, 28);
             this.btn_adicionarfotoaluno.TabIndex = 13;
@@ -234,157 +214,210 @@
             this.btn_cancelarMatricula.UseVisualStyleBackColor = false;
             this.btn_cancelarMatricula.Click += new System.EventHandler(this.Btn_cancelarMatricula_Click);
             // 
-            // txt_cep
+            // label_CadastraEndereco
             // 
-            this.txt_cep.AcceptsTab = true;
-            this.txt_cep.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_cep.Location = new System.Drawing.Point(479, 21);
-            this.txt_cep.Name = "txt_cep";
-            this.txt_cep.Size = new System.Drawing.Size(233, 26);
-            this.txt_cep.TabIndex = 17;
-            this.txt_cep.Text = "35000000";
+            this.label_CadastraEndereco.AutoSize = true;
+            this.label_CadastraEndereco.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_CadastraEndereco.ForeColor = System.Drawing.Color.White;
+            this.label_CadastraEndereco.Location = new System.Drawing.Point(196, 253);
+            this.label_CadastraEndereco.Name = "label_CadastraEndereco";
+            this.label_CadastraEndereco.Size = new System.Drawing.Size(91, 20);
+            this.label_CadastraEndereco.TabIndex = 16;
+            this.label_CadastraEndereco.Text = "Endereco:";
+            this.label_CadastraEndereco.Click += new System.EventHandler(this.Label1_Click_1);
             // 
-            // lbl_cep
+            // button_buscaEndereco
             // 
-            this.lbl_cep.AutoSize = true;
-            this.lbl_cep.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_cep.ForeColor = System.Drawing.Color.White;
-            this.lbl_cep.Location = new System.Drawing.Point(427, 21);
-            this.lbl_cep.Name = "lbl_cep";
-            this.lbl_cep.Size = new System.Drawing.Size(46, 20);
-            this.lbl_cep.TabIndex = 16;
-            this.lbl_cep.Text = "Cep:";
+            this.button_buscaEndereco.BackColor = System.Drawing.Color.DarkGray;
+            this.button_buscaEndereco.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_buscaEndereco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_buscaEndereco.ForeColor = System.Drawing.Color.White;
+            this.button_buscaEndereco.Location = new System.Drawing.Point(301, 243);
+            this.button_buscaEndereco.Name = "button_buscaEndereco";
+            this.button_buscaEndereco.Size = new System.Drawing.Size(77, 30);
+            this.button_buscaEndereco.TabIndex = 17;
+            this.button_buscaEndereco.Text = "Cadastrar";
+            this.button_buscaEndereco.UseVisualStyleBackColor = false;
             // 
-            // txt_rua
+            // button_Anexar
             // 
-            this.txt_rua.AcceptsTab = true;
-            this.txt_rua.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_rua.Location = new System.Drawing.Point(479, 68);
-            this.txt_rua.Name = "txt_rua";
-            this.txt_rua.Size = new System.Drawing.Size(233, 26);
-            this.txt_rua.TabIndex = 19;
-            this.txt_rua.Text = "Taquara";
+            this.button_Anexar.BackColor = System.Drawing.Color.Green;
+            this.button_Anexar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_Anexar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_Anexar.ForeColor = System.Drawing.Color.White;
+            this.button_Anexar.Location = new System.Drawing.Point(481, 243);
+            this.button_Anexar.Name = "button_Anexar";
+            this.button_Anexar.Size = new System.Drawing.Size(80, 30);
+            this.button_Anexar.TabIndex = 18;
+            this.button_Anexar.TabStop = false;
+            this.button_Anexar.Text = "Vincular";
+            this.button_Anexar.UseVisualStyleBackColor = false;
+            this.button_Anexar.Click += new System.EventHandler(this.Button2_Click);
             // 
-            // lbl_rua
+            // textBoxidEndereco
             // 
-            this.lbl_rua.AutoSize = true;
-            this.lbl_rua.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_rua.ForeColor = System.Drawing.Color.White;
-            this.lbl_rua.Location = new System.Drawing.Point(427, 68);
-            this.lbl_rua.Name = "lbl_rua";
-            this.lbl_rua.Size = new System.Drawing.Size(47, 20);
-            this.lbl_rua.TabIndex = 18;
-            this.lbl_rua.Text = "Rua:";
+            this.textBoxidEndereco.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxidEndereco.Location = new System.Drawing.Point(420, 245);
+            this.textBoxidEndereco.Name = "textBoxidEndereco";
+            this.textBoxidEndereco.Size = new System.Drawing.Size(55, 26);
+            this.textBoxidEndereco.TabIndex = 19;
             // 
-            // txt_bairro
+            // labeL_idEndereco
             // 
-            this.txt_bairro.AcceptsTab = true;
-            this.txt_bairro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_bairro.Location = new System.Drawing.Point(479, 175);
-            this.txt_bairro.Name = "txt_bairro";
-            this.txt_bairro.Size = new System.Drawing.Size(233, 26);
-            this.txt_bairro.TabIndex = 21;
-            this.txt_bairro.Text = "Fazenda Lagoa";
+            this.labeL_idEndereco.AutoSize = true;
+            this.labeL_idEndereco.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labeL_idEndereco.ForeColor = System.Drawing.Color.White;
+            this.labeL_idEndereco.Location = new System.Drawing.Point(384, 253);
+            this.labeL_idEndereco.Name = "labeL_idEndereco";
+            this.labeL_idEndereco.Size = new System.Drawing.Size(30, 20);
+            this.labeL_idEndereco.TabIndex = 20;
+            this.labeL_idEndereco.Text = "Id:";
             // 
-            // lbl_bairro
+            // textBox_IdResponsavel
             // 
-            this.lbl_bairro.AutoSize = true;
-            this.lbl_bairro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_bairro.ForeColor = System.Drawing.Color.White;
-            this.lbl_bairro.Location = new System.Drawing.Point(412, 178);
-            this.lbl_bairro.Name = "lbl_bairro";
-            this.lbl_bairro.Size = new System.Drawing.Size(62, 20);
-            this.lbl_bairro.TabIndex = 20;
-            this.lbl_bairro.Text = "Bairro:";
+            this.textBox_IdResponsavel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_IdResponsavel.Location = new System.Drawing.Point(420, 305);
+            this.textBox_IdResponsavel.Name = "textBox_IdResponsavel";
+            this.textBox_IdResponsavel.Size = new System.Drawing.Size(55, 26);
+            this.textBox_IdResponsavel.TabIndex = 22;
             // 
-            // txt_cidade
+            // label_reponsavelAluno
             // 
-            this.txt_cidade.AcceptsTab = true;
-            this.txt_cidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_cidade.Location = new System.Drawing.Point(478, 228);
-            this.txt_cidade.Name = "txt_cidade";
-            this.txt_cidade.Size = new System.Drawing.Size(233, 26);
-            this.txt_cidade.TabIndex = 23;
-            this.txt_cidade.Text = "Dores de Guanhães";
+            this.label_reponsavelAluno.AutoSize = true;
+            this.label_reponsavelAluno.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_reponsavelAluno.ForeColor = System.Drawing.Color.White;
+            this.label_reponsavelAluno.Location = new System.Drawing.Point(180, 311);
+            this.label_reponsavelAluno.Name = "label_reponsavelAluno";
+            this.label_reponsavelAluno.Size = new System.Drawing.Size(107, 20);
+            this.label_reponsavelAluno.TabIndex = 21;
+            this.label_reponsavelAluno.Text = "Resposável:";
             // 
-            // lbl_cidade
+            // label_idResponsavel
             // 
-            this.lbl_cidade.AutoSize = true;
-            this.lbl_cidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_cidade.ForeColor = System.Drawing.Color.White;
-            this.lbl_cidade.Location = new System.Drawing.Point(402, 231);
-            this.lbl_cidade.Name = "lbl_cidade";
-            this.lbl_cidade.Size = new System.Drawing.Size(70, 20);
-            this.lbl_cidade.TabIndex = 22;
-            this.lbl_cidade.Text = "Cidade:";
+            this.label_idResponsavel.AutoSize = true;
+            this.label_idResponsavel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_idResponsavel.ForeColor = System.Drawing.Color.White;
+            this.label_idResponsavel.Location = new System.Drawing.Point(384, 311);
+            this.label_idResponsavel.Name = "label_idResponsavel";
+            this.label_idResponsavel.Size = new System.Drawing.Size(30, 20);
+            this.label_idResponsavel.TabIndex = 24;
+            this.label_idResponsavel.Text = "Id:";
             // 
-            // txt_estado
+            // button_cadastraResponsavel
             // 
-            this.txt_estado.AcceptsTab = true;
-            this.txt_estado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_estado.Location = new System.Drawing.Point(478, 282);
-            this.txt_estado.Name = "txt_estado";
-            this.txt_estado.Size = new System.Drawing.Size(233, 26);
-            this.txt_estado.TabIndex = 25;
-            this.txt_estado.Text = "MG";
+            this.button_cadastraResponsavel.BackColor = System.Drawing.Color.DarkGray;
+            this.button_cadastraResponsavel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_cadastraResponsavel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_cadastraResponsavel.ForeColor = System.Drawing.Color.White;
+            this.button_cadastraResponsavel.Location = new System.Drawing.Point(301, 301);
+            this.button_cadastraResponsavel.Name = "button_cadastraResponsavel";
+            this.button_cadastraResponsavel.Size = new System.Drawing.Size(77, 30);
+            this.button_cadastraResponsavel.TabIndex = 23;
+            this.button_cadastraResponsavel.Text = "Cadastrar";
+            this.button_cadastraResponsavel.UseVisualStyleBackColor = false;
             // 
-            // lbl_estado
+            // button_vincularIdResponsavel
             // 
-            this.lbl_estado.AutoSize = true;
-            this.lbl_estado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_estado.ForeColor = System.Drawing.Color.White;
-            this.lbl_estado.Location = new System.Drawing.Point(402, 285);
-            this.lbl_estado.Name = "lbl_estado";
-            this.lbl_estado.Size = new System.Drawing.Size(71, 20);
-            this.lbl_estado.TabIndex = 24;
-            this.lbl_estado.Text = "Estado:";
+            this.button_vincularIdResponsavel.BackColor = System.Drawing.Color.Green;
+            this.button_vincularIdResponsavel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_vincularIdResponsavel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_vincularIdResponsavel.ForeColor = System.Drawing.Color.White;
+            this.button_vincularIdResponsavel.Location = new System.Drawing.Point(481, 303);
+            this.button_vincularIdResponsavel.Name = "button_vincularIdResponsavel";
+            this.button_vincularIdResponsavel.Size = new System.Drawing.Size(80, 30);
+            this.button_vincularIdResponsavel.TabIndex = 25;
+            this.button_vincularIdResponsavel.TabStop = false;
+            this.button_vincularIdResponsavel.Text = "Vincular";
+            this.button_vincularIdResponsavel.UseVisualStyleBackColor = false;
             // 
-            // txt_numero
+            // buttonVinculaIdTel
             // 
-            this.txt_numero.AcceptsTab = true;
-            this.txt_numero.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_numero.Location = new System.Drawing.Point(479, 119);
-            this.txt_numero.Name = "txt_numero";
-            this.txt_numero.Size = new System.Drawing.Size(233, 26);
-            this.txt_numero.TabIndex = 27;
-            this.txt_numero.Text = "10";
+            this.buttonVinculaIdTel.BackColor = System.Drawing.Color.Green;
+            this.buttonVinculaIdTel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonVinculaIdTel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonVinculaIdTel.ForeColor = System.Drawing.Color.White;
+            this.buttonVinculaIdTel.Location = new System.Drawing.Point(481, 360);
+            this.buttonVinculaIdTel.Name = "buttonVinculaIdTel";
+            this.buttonVinculaIdTel.Size = new System.Drawing.Size(80, 30);
+            this.buttonVinculaIdTel.TabIndex = 30;
+            this.buttonVinculaIdTel.TabStop = false;
+            this.buttonVinculaIdTel.Text = "Vincular";
+            this.buttonVinculaIdTel.UseVisualStyleBackColor = false;
+            this.buttonVinculaIdTel.Click += new System.EventHandler(this.Button1_Click_1);
             // 
-            // lbl_numero
+            // label_idTelefone
             // 
-            this.lbl_numero.AutoSize = true;
-            this.lbl_numero.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_numero.ForeColor = System.Drawing.Color.White;
-            this.lbl_numero.Location = new System.Drawing.Point(403, 122);
-            this.lbl_numero.Name = "lbl_numero";
-            this.lbl_numero.Size = new System.Drawing.Size(76, 20);
-            this.lbl_numero.TabIndex = 26;
-            this.lbl_numero.Text = "Número:";
+            this.label_idTelefone.AutoSize = true;
+            this.label_idTelefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_idTelefone.ForeColor = System.Drawing.Color.White;
+            this.label_idTelefone.Location = new System.Drawing.Point(384, 368);
+            this.label_idTelefone.Name = "label_idTelefone";
+            this.label_idTelefone.Size = new System.Drawing.Size(30, 20);
+            this.label_idTelefone.TabIndex = 29;
+            this.label_idTelefone.Text = "Id:";
+            this.label_idTelefone.Click += new System.EventHandler(this.Label1_Click_2);
+            // 
+            // button_telefone
+            // 
+            this.button_telefone.BackColor = System.Drawing.Color.DarkGray;
+            this.button_telefone.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_telefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_telefone.ForeColor = System.Drawing.Color.White;
+            this.button_telefone.Location = new System.Drawing.Point(301, 358);
+            this.button_telefone.Name = "button_telefone";
+            this.button_telefone.Size = new System.Drawing.Size(77, 30);
+            this.button_telefone.TabIndex = 28;
+            this.button_telefone.Text = "Telefone";
+            this.button_telefone.UseVisualStyleBackColor = false;
+            this.button_telefone.Click += new System.EventHandler(this.Button2_Click_1);
+            // 
+            // textBox_idtelefone
+            // 
+            this.textBox_idtelefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_idtelefone.Location = new System.Drawing.Point(420, 362);
+            this.textBox_idtelefone.Name = "textBox_idtelefone";
+            this.textBox_idtelefone.Size = new System.Drawing.Size(55, 26);
+            this.textBox_idtelefone.TabIndex = 27;
+            this.textBox_idtelefone.TextChanged += new System.EventHandler(this.TextBox1_TextChanged_2);
+            // 
+            // label_telefone
+            // 
+            this.label_telefone.AutoSize = true;
+            this.label_telefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_telefone.ForeColor = System.Drawing.Color.White;
+            this.label_telefone.Location = new System.Drawing.Point(196, 365);
+            this.label_telefone.Name = "label_telefone";
+            this.label_telefone.Size = new System.Drawing.Size(84, 20);
+            this.label_telefone.TabIndex = 26;
+            this.label_telefone.Text = "Telefone:";
+            this.label_telefone.Click += new System.EventHandler(this.Label2_Click_1);
             // 
             // AdicionarAlunoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Navy;
-            this.ClientSize = new System.Drawing.Size(794, 504);
-            this.Controls.Add(this.txt_numero);
-            this.Controls.Add(this.lbl_numero);
-            this.Controls.Add(this.txt_estado);
-            this.Controls.Add(this.lbl_estado);
-            this.Controls.Add(this.txt_cidade);
-            this.Controls.Add(this.lbl_cidade);
-            this.Controls.Add(this.txt_bairro);
-            this.Controls.Add(this.lbl_bairro);
-            this.Controls.Add(this.txt_rua);
-            this.Controls.Add(this.lbl_rua);
-            this.Controls.Add(this.txt_cep);
-            this.Controls.Add(this.lbl_cep);
+            this.ClientSize = new System.Drawing.Size(826, 504);
+            this.Controls.Add(this.buttonVinculaIdTel);
+            this.Controls.Add(this.label_idTelefone);
+            this.Controls.Add(this.button_telefone);
+            this.Controls.Add(this.textBox_idtelefone);
+            this.Controls.Add(this.label_telefone);
+            this.Controls.Add(this.button_vincularIdResponsavel);
+            this.Controls.Add(this.label_idResponsavel);
+            this.Controls.Add(this.button_cadastraResponsavel);
+            this.Controls.Add(this.textBox_IdResponsavel);
+            this.Controls.Add(this.label_reponsavelAluno);
+            this.Controls.Add(this.labeL_idEndereco);
+            this.Controls.Add(this.textBoxidEndereco);
+            this.Controls.Add(this.button_Anexar);
+            this.Controls.Add(this.button_buscaEndereco);
+            this.Controls.Add(this.label_CadastraEndereco);
             this.Controls.Add(this.btn_cancelarMatricula);
             this.Controls.Add(this.btn_salvarmatricula);
             this.Controls.Add(this.btn_adicionarfotoaluno);
             this.Controls.Add(this.pctb_foto);
             this.Controls.Add(this.lbl_foto);
-            this.Controls.Add(this.txt_telefone);
-            this.Controls.Add(this.lbl_telefone);
             this.Controls.Add(this.gb_genero);
             this.Controls.Add(this.lbl_genero);
             this.Controls.Add(this.dtBox_nascimento);
@@ -413,25 +446,25 @@
         private System.Windows.Forms.GroupBox gb_genero;
         private System.Windows.Forms.RadioButton rd_btn_generoFem;
         private System.Windows.Forms.RadioButton rd_btn_generoMasc;
-        private System.Windows.Forms.TextBox txt_telefone;
-        private System.Windows.Forms.Label lbl_telefone;
         private System.Windows.Forms.Label lbl_foto;
         private System.Windows.Forms.PictureBox pctb_foto;
         private System.Windows.Forms.Button btn_salvarmatricula;
         private System.Windows.Forms.Button btn_cancelarMatricula;
         private System.Windows.Forms.Button btn_adicionarfotoaluno;
-      
-        private System.Windows.Forms.TextBox txt_cep;
-        private System.Windows.Forms.Label lbl_cep;
-        private System.Windows.Forms.TextBox txt_rua;
-        private System.Windows.Forms.Label lbl_rua;
-        private System.Windows.Forms.TextBox txt_bairro;
-        private System.Windows.Forms.Label lbl_bairro;
-        private System.Windows.Forms.TextBox txt_cidade;
-        private System.Windows.Forms.Label lbl_cidade;
-        private System.Windows.Forms.TextBox txt_estado;
-        private System.Windows.Forms.Label lbl_estado;
-        private System.Windows.Forms.TextBox txt_numero;
-        private System.Windows.Forms.Label lbl_numero;
+        private System.Windows.Forms.Label label_CadastraEndereco;
+        private System.Windows.Forms.Button button_buscaEndereco;
+        private System.Windows.Forms.Button button_Anexar;
+        private System.Windows.Forms.TextBox textBoxidEndereco;
+        private System.Windows.Forms.Label labeL_idEndereco;
+        private System.Windows.Forms.TextBox textBox_IdResponsavel;
+        private System.Windows.Forms.Label label_reponsavelAluno;
+        private System.Windows.Forms.Label label_idResponsavel;
+        private System.Windows.Forms.Button button_cadastraResponsavel;
+        private System.Windows.Forms.Button button_vincularIdResponsavel;
+        private System.Windows.Forms.Button buttonVinculaIdTel;
+        private System.Windows.Forms.Label label_idTelefone;
+        private System.Windows.Forms.Button button_telefone;
+        private System.Windows.Forms.TextBox textBox_idtelefone;
+        private System.Windows.Forms.Label label_telefone;
     }
 }

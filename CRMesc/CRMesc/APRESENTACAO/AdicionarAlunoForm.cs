@@ -14,7 +14,7 @@ namespace CRMesc
 {
     public partial class AdicionarAlunoForm : Form
     {
-        public String id;
+   
         public bool btn_preencherIdClicado = false;
         public bool btn_anexarId_Clicado = false;
         public AdicionarAlunoForm()
@@ -206,6 +206,65 @@ namespace CRMesc
             return this.btn_anexarId_Clicado;
         }
 
+        private void Label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TextBox1_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Txt_telefone_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label1_Click_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Button1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TextBox1_TextChanged_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Button2_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

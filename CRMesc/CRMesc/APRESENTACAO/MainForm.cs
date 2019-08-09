@@ -35,7 +35,8 @@ namespace CRMesc.APRESENTACAO
 
         private void EstatisticasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            EstatisticasFoms estatisticas = new EstatisticasFoms();
+            estatisticas.Show(this);
         }
 
         private void EditarRemoverToolStripMenuItem_Click(object sender, EventArgs e)
