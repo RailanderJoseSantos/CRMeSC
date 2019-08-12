@@ -47,8 +47,6 @@
             this.pnlTotAlu.Name = "pnlTotAlu";
             this.pnlTotAlu.Size = new System.Drawing.Size(1021, 269);
             this.pnlTotAlu.TabIndex = 0;
-            this.pnlTotAlu.MouseEnter += new System.EventHandler(this.PnlTotAlu_MouseEnter);
-            this.pnlTotAlu.MouseLeave += new System.EventHandler(this.PnlTotAlu_MouseLeave);
             // 
             // label_totAlunos
             // 
@@ -60,8 +58,6 @@
             this.label_totAlunos.Size = new System.Drawing.Size(179, 25);
             this.label_totAlunos.TabIndex = 1;
             this.label_totAlunos.Text = "Masculino: 50%";
-            this.label_totAlunos.MouseEnter += new System.EventHandler(this.Label_totAlunos_MouseEnter);
-            this.label_totAlunos.MouseLeave += new System.EventHandler(this.Label_totAlunos_MouseLeave);
             // 
             // pnl_TotalAlunosMasc
             // 
@@ -71,8 +67,7 @@
             this.pnl_TotalAlunosMasc.Name = "pnl_TotalAlunosMasc";
             this.pnl_TotalAlunosMasc.Size = new System.Drawing.Size(504, 261);
             this.pnl_TotalAlunosMasc.TabIndex = 1;
-            this.pnl_TotalAlunosMasc.MouseEnter += new System.EventHandler(this.Pnl_TotalAlunosMasc_MouseEnter);
-            this.pnl_TotalAlunosMasc.MouseLeave += new System.EventHandler(this.Pnl_TotalAlunosMasc_MouseLeave);
+
             // 
             // lbl_alunosMasc
             // 
@@ -84,8 +79,7 @@
             this.lbl_alunosMasc.Size = new System.Drawing.Size(179, 25);
             this.lbl_alunosMasc.TabIndex = 0;
             this.lbl_alunosMasc.Text = "Masculino: 50%";
-            this.lbl_alunosMasc.MouseEnter += new System.EventHandler(this.Lbl_alunosMasc_MouseEnter);
-            this.lbl_alunosMasc.MouseLeave += new System.EventHandler(this.Lbl_alunosMasc_MouseLeave);
+
             // 
             // pnl_TotalAlunosFem
             // 
@@ -95,8 +89,6 @@
             this.pnl_TotalAlunosFem.Name = "pnl_TotalAlunosFem";
             this.pnl_TotalAlunosFem.Size = new System.Drawing.Size(511, 261);
             this.pnl_TotalAlunosFem.TabIndex = 2;
-            this.pnl_TotalAlunosFem.MouseEnter += new System.EventHandler(this.Pnl_TotalAlunosFem_MouseEnter);
-            this.pnl_TotalAlunosFem.MouseLeave += new System.EventHandler(this.Pnl_TotalAlunosFem_MouseLeave);
             // 
             // lbl_alunoFemea
             // 
@@ -110,8 +102,6 @@
             this.lbl_alunoFemea.TabIndex = 1;
             this.lbl_alunoFemea.Text = "Feminino: 50%";
             this.lbl_alunoFemea.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbl_alunoFemea.MouseEnter += new System.EventHandler(this.Lbl_alunoFemea_MouseEnter);
-            this.lbl_alunoFemea.MouseLeave += new System.EventHandler(this.Lbl_alunoFemea_MouseLeave);
             // 
             // EstatisticasFoms
             // 

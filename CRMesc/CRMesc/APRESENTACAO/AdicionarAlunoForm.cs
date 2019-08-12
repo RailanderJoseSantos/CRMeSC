@@ -12,12 +12,13 @@ using System.Windows.Forms;
 
 namespace CRMesc
 {
-    public partial class AdicionarAlunoForm : Form
+    public partial class AdicionarEnderecoForm : Form
     {
    
         public bool btn_preencherIdClicado = false;
         public bool btn_anexarId_Clicado = false;
-        public AdicionarAlunoForm()
+
+        public AdicionarEnderecoForm()
         {
             InitializeComponent();
         }
@@ -39,28 +40,40 @@ namespace CRMesc
 
         private void Btn_salvarmatricula_Click(object sender, EventArgs e)
         {
+
+            Endereco en = new Endereco();
             Aluno aluno = new Aluno();
+            Responsavel resp = new Responsavel();
+            Telefone tel = new Telefone();
+
+            String responsavel = textBox_responsavel.Text;
+            String telefone = textBox_telefone.Text;
+
+
+            String cep = textBox_Cep.Text;
+            String rua = textBox_rua.Text;
+            String bairro = textBox_bairro.Text;
+            int numero = 0;
+            if (textBox_numero.Text.Trim() != "")
+            {
+                numero = Convert.ToInt32(textBox_numero.Text);
+            }
+            String cidade = textBox_cidade.Text;
+            String uf = textBox_uf.Text;
 
             String nome = txt_nome.Text;
             DateTime nascimento = dtBox_nascimento.Value;
-            String telefone = txt_telefone.Text;
-            String genero = "Masculino";
-            String cep = txt_cep.Text;
-            String rua = txt_rua.Text;
-            String bairro = txt_bairro.Text;
-            int numero = Convert.ToInt32(txt_numero.Text);
-            String cidade = txt_cidade.Text;
-            String uf = txt_estado.Text;
-
-
+            // String telefone = txt_telefone.Text;
+            String genero = "M";
 
             if (rd_btn_generoFem.Checked)
             {
-                genero = "Feminino";
+                genero = "F";
             }
 
             MemoryStream fot = new MemoryStream();
 
+            int countSucesso = 0;
             // checando idade de aluno ( 5 a 100 anos)
             int ano_nasc = dtBox_nascimento.Value.Year;
             int ano_atual = DateTime.Now.Year;
@@ -74,24 +87,76 @@ namespace CRMesc
                 if (verificaCampoVazio())
                 {
                     pctb_foto.Image.Save(fot, pctb_foto.Image.RawFormat);
-                    if (aluno.inserirAluno(nome, nascimento, telefone, genero, fot, cep, rua, bairro, numero, cidade, uf))
+                    if ((aluno.inserirAluno(nome, nascimento, genero, fot)))
                     {
-                        MessageBox.Show("Aluno cadastrado ", "Cadastro de aluno", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.Close();
+                        countSucesso += 1;
+                        int idAluno = Convert.ToInt32(aluno.getIdAluno());
+                        if (resp.inserirResponsavel(responsavel, idAluno))
+                        {
+                            countSucesso += 1;
+                            int idResponsavel = Convert.ToInt32(resp.GetIdResponsavel());
+                            if ((en.inserirEndereco(cep, rua, bairro, numero, cidade, uf)))
+                            {
+                                countSucesso += 1;
+                                int idEndereco = Convert.ToInt32(en.getIdEndereco());
+                                Endereco endereco = new Endereco();
+                                if (endereco.AssociaEnderResponsavel(idResponsavel, idEndereco))
+                                {
+                                    countSucesso += 1;
+                                    int idTelefone = Convert.ToInt32(tel.GetIdTelefone());
+                                    if (tel.inserirTelefone(telefone))
+                                    {
+                                        countSucesso += 1;
+                                        if (tel.AssociaTelefoneResponsavel(idResponsavel, idTelefone))
+                                        {
+                                            countSucesso += 1;
+                                            if (countSucesso == 6)
+                                            {
+                                                MessageBox.Show("Aluno cadastrado ", "Cadastro de aluno", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                                limpaCampos();
+                                                countSucesso = 0;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("Erro ao associar telefone ao responsavel", "erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        }
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Erro ao cadastrar telefone do responsavel", "erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                                    }
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Erro ao associar endereco ao responsavel", "erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Erro ao inserir endereco do responsavel", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Erro ao inserir responsavel ", "Cadastro de aluno", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            // Endereco endereco = new Endereco();
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Erro ", "Cadastro de aluno", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        // Endereco endereco = new Endereco();
+                        MessageBox.Show("Erro ao associar telefone ao responsavel", "erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
                 {
                     MessageBox.Show("Preencha todos os campos ", "Cadastro de aluno", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
+                
             }
         }
-
         // funcao para  verificar campo em branco
         bool limitesCaracteresAceitos()
         {
@@ -100,27 +165,33 @@ namespace CRMesc
                 MessageBox.Show("Nome do aluno pode ter no máximo 50 caracteres ", "Cadatro de aluno", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
-            else if ((txt_telefone.Text.Length) > 20)
+            else if ((textBox_telefone.Text.Length) > 20)
             {
-                MessageBox.Show("Telefone do aluno pode ter no máximo 20 digitos ", "Cadastro de aluno", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Telefone  pode ter no máximo 20 digitos ", "Cadastro de aluno", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
-            else if ((txt_cep.Text.Length > 15))
+            else if( textBox_responsavel.Text.Length > 50)
             {
-                MessageBox.Show("Cep do aluno pode ter no máximo 15 caracteres ", "Cadastro de aluno", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Nome do pai/responsável  pode ter no máximo 50 letras ", "Cadastro de aluno", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
-            else if ((txt_rua.Text.Length > 50))
+            else if ((textBox_Cep.Text.Length > 15))
+            {
+                MessageBox.Show("Cep  pode ter no máximo 15 caracteres ", "Cadastro de aluno", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+            else if ((textBox_rua.Text.Length > 50))
             {
                 MessageBox.Show("Rua do aluno pode ter no máximo 50 caracteres ", "Cadastro de aluno", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
-            else if ((txt_bairro.Text.Length > 50))
+            else if ((textBox_bairro.Text.Length > 50))
             {
                 MessageBox.Show("Bairro do aluno pode ter no máximo 50 caracteres ", "Cadastro de aluno", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
-            else if ((txt_estado.Text.Length > 2)) { 
+            else if ((textBox_uf.Text.Length > 2))
+            {
                 MessageBox.Show("Estado do aluno pode ter no máximo 2 caracteres ", "Cadastro de aluno", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
@@ -134,15 +205,16 @@ namespace CRMesc
         bool verificaCampoVazio()
         {
             if ((txt_nome.Text.Trim() == "") ||
-                (txt_telefone.Text.Trim() == "") ||
+ //               (txt_telefone.Text.Trim() == "") ||
                 (rd_btn_generoFem.Checked == false && rd_btn_generoMasc.Checked == false) ||
                 (pctb_foto.Image == null) ||
-                (txt_cep.Text.Trim() == "")|| 
-                (txt_cidade.Text.Trim() == "") ||
-                (txt_rua.Text.Trim() == "") ||
-                (txt_numero.Text.Trim() == "") ||
-                (txt_bairro.Text.Trim() == "") ||
-                (txt_estado.Text.Trim() == "")
+                (textBox_Cep.Text.Trim() == "")|| 
+                (textBox_cidade.Text.Trim() == "") ||
+                (textBox_rua.Text.Trim() == "") ||
+                (textBox_numero.Text == "") ||
+                (textBox_bairro.Text.Trim() == "") ||
+                (textBox_uf.Text.Trim() == "") ||
+                (textBox_responsavel.Text.Trim() == "")
                 )
             {
                 return false;
@@ -264,6 +336,70 @@ namespace CRMesc
         private void Button2_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void Button_buscaEndereco_Click(object sender, EventArgs e)
+        {
+
+ 
+            
+        }
+
+        private void TextBoxidEndereco_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Button_Anexar_MouseClick(object sender, MouseEventArgs e)
+        {
+            //AdicionaEnderecoForm endereco = new AdicionaEnderecoForm();
+            //textBoxidEndereco.Text = Convert.ToString( endereco.idEndereco);
+        }
+
+        private void Button_Anexar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Button_cadastraResponsavel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TextBox6_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label1_Click_3(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label_telefone_Click(object sender, EventArgs e)
+        {
+
+        }
+        void limpaCampos()
+        {
+            txt_nome.Clear();
+            pctb_foto.Image = null;
+            // dtBox_nascimento.Value = hoje.AddYears(-7);
+            dtBox_nascimento.Value = DateTime.Now;
+            textBox_telefone.Clear();
+            textBox_responsavel.Clear();
+            textBox_rua.Clear();
+            textBox_Cep.Clear();
+            textBox_uf.Clear();
+            textBox_cidade.Clear();
+            textBox_bairro.Clear();
+            textBox_cidade.Clear();
+            textBox_numero.Clear();
         }
     }
 

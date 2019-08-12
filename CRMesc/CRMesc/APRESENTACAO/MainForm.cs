@@ -23,7 +23,7 @@ namespace CRMesc.APRESENTACAO
 
         private void AdcionarNovoAlunoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AdicionarAlunoForm adicionarAluno = new AdicionarAlunoForm();
+            AdicionarEnderecoForm adicionarAluno = new AdicionarEnderecoForm();
             adicionarAluno.Show(this);
         }
 

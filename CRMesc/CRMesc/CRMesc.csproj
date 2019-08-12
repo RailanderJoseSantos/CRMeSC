@@ -41,6 +41,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Data.SqlXml" />
     <Reference Include="System.Deployment" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
@@ -79,16 +80,19 @@
     <Compile Include="APRESENTACAO\ListaAlunoForm.Designer.cs">
       <DependentUpon>ListaAlunoForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="EstatisticasFoms.cs">
+    <Compile Include="APRESENTACAO\EstatisticasFoms.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EstatisticasFoms.Designer.cs">
+    <Compile Include="APRESENTACAO\EstatisticasFoms.Designer.cs">
       <DependentUpon>EstatisticasFoms.cs</DependentUpon>
     </Compile>
+    <Compile Include="Endereco.cs" />
     <Compile Include="MODEL\LoginControle.cs" />
     <Compile Include="DAL\LoginDaoComandos.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Responsavel.cs" />
+    <Compile Include="Telefone.cs" />
     <EmbeddedResource Include="APRESENTACAO\AdicionarAlunoForm.resx">
       <DependentUpon>AdicionarAlunoForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -104,7 +108,7 @@
     <EmbeddedResource Include="APRESENTACAO\ListaAlunoForm.resx">
       <DependentUpon>ListaAlunoForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EstatisticasFoms.resx">
+    <EmbeddedResource Include="APRESENTACAO\EstatisticasFoms.resx">
       <DependentUpon>EstatisticasFoms.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
