@@ -55,6 +55,12 @@
       <DependentUpon>AdicionarAlunoForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Aluno.cs" />
+    <Compile Include="APRESENTACAO\Lista Alunos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="APRESENTACAO\Lista Alunos.Designer.cs">
+      <DependentUpon>Lista Alunos.cs</DependentUpon>
+    </Compile>
     <Compile Include="APRESENTACAO\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,18 +73,22 @@
     <Compile Include="APRESENTACAO\Atualiza_Deleta_AlunoForm.Designer.cs">
       <DependentUpon>Atualiza_Deleta_AlunoForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CRMESCDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRMESCDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CRMESCDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRMESCDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DAL\Banco.cs" />
     <Compile Include="APRESENTACAO\Form1_login.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="APRESENTACAO\Form1_login.Designer.cs">
       <DependentUpon>Form1_login.cs</DependentUpon>
-    </Compile>
-    <Compile Include="APRESENTACAO\ListaAlunoForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="APRESENTACAO\ListaAlunoForm.Designer.cs">
-      <DependentUpon>ListaAlunoForm.cs</DependentUpon>
     </Compile>
     <Compile Include="APRESENTACAO\EstatisticasFoms.cs">
       <SubType>Form</SubType>
@@ -99,14 +109,14 @@
     <EmbeddedResource Include="APRESENTACAO\Form1_login.resx">
       <DependentUpon>Form1_login.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="APRESENTACAO\Lista Alunos.resx">
+      <DependentUpon>Lista Alunos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="APRESENTACAO\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="APRESENTACAO\Atualiza_Deleta_AlunoForm.resx">
       <DependentUpon>Atualiza_Deleta_AlunoForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="APRESENTACAO\ListaAlunoForm.resx">
-      <DependentUpon>ListaAlunoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="APRESENTACAO\EstatisticasFoms.resx">
       <DependentUpon>EstatisticasFoms.cs</DependentUpon>
@@ -120,6 +130,29 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="app.config" />
+    <None Include="CRMESCDataSet.xsc">
+      <DependentUpon>CRMESCDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="CRMESCDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CRMESCDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CRMESCDataSet.xss">
+      <DependentUpon>CRMESCDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="CRMESCDataSet1.xsc">
+      <DependentUpon>CRMESCDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="CRMESCDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CRMESCDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CRMESCDataSet1.xss">
+      <DependentUpon>CRMESCDataSet1.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

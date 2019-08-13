@@ -103,4 +103,9 @@ ON AE.IDALUNO = A.IDALUNO
 
 
 
-select * from res
+select * from ALUNO
+
+SELECT R.IDRESPONSAVEL,R.NOME, R.IDALUNO FROM RESPONSAVEL R
+                 INNER JOIN ALUNO A
+                 ON A.IDALUNO = R.IDALUNO
+                ORDER BY R.NOME

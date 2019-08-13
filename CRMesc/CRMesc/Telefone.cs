@@ -57,6 +57,15 @@ namespace CRMesc
             }
 
         }
+            public DataTable GetTelefone(SqlCommand comand)
+            {
+                comand.Connection = db.conectar();
+                SqlDataAdapter adapter = new SqlDataAdapter(comand);
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+                return table;
+            }
+
         public bool AssociaTelefoneResponsavel(int idResponsavel, int idTelefone)
         {
             SqlCommand cmd = new SqlCommand("INSERT INTO RESPONSAVEL_TELEFONE (IDRESPONSAVEL, IDTELEFONE)" +

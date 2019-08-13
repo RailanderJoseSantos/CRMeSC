@@ -60,14 +60,14 @@ namespace CRMesc
 
         }
         //funcai de inserir na grid
-    /*    public DataTable getEndereco(SqlCommand comand)
+      public DataTable getEndereco(SqlCommand comand)
         {
             comand.Connection = db.conectar();
             SqlDataAdapter adapter = new SqlDataAdapter(comand);
             DataTable tableEnd = new DataTable();
             adapter.Fill(tableEnd);
             return tableEnd;
-        }*/
+        }
         //funcao para atualizar endereco
         public bool atualizarEndereco(int idAluno, String cep, String rua, String bairro, int numero, String cidade, String estado)
         {

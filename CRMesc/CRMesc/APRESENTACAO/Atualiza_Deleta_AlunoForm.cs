@@ -218,7 +218,7 @@ namespace CRMesc
                  Aluno aluno = new Aluno();
             //buscar  Aluno por id
             int idAluno = Convert.ToInt32(txt_idAluno.Text);
-            SqlCommand cmd = new SqlCommand("SELECT ID, NOME, NASCIMENTO, GENERO, TELEFONE, FOTO, CEP, RUA, BAIRRO, NUMERO, CIDADE, UF FROM ALUNO WHERE ID = " + idAluno);
+            SqlCommand cmd = new SqlCommand("SELECT A.ID, A.NOME, A.NASCIMENTO, A.GENERO, T.TELEFONE, A.FOTO, E.CEP, E.RUA, E.BAIRRO, E.NUMERO, E.CIDADE, E.UF, R.NOME FROM ALUNO INNER JOIN RESPONSAVEL R WHERE ID = " + idAluno);
             DataTable tabela = aluno.getAlunos(cmd);
             if (tabela.Rows.Count > 0)
             {

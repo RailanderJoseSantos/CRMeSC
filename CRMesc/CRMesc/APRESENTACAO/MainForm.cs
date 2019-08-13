@@ -29,7 +29,7 @@ namespace CRMesc.APRESENTACAO
 
         private void NomeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ListaAlunoForm listaAluno = new ListaAlunoForm();
+            Lista_Alunos listaAluno = new Lista_Alunos();
             listaAluno.Show(this);
         }
 

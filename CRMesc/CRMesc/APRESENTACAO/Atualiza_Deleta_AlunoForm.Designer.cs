@@ -58,6 +58,16 @@
             this.btn_remover = new System.Windows.Forms.Button();
             this.btn_salvarmatricula = new System.Windows.Forms.Button();
             this.btn_procurarId = new System.Windows.Forms.Button();
+            this.button_procuraResponsavel = new System.Windows.Forms.Button();
+            this.textBox_idResponsavel = new System.Windows.Forms.TextBox();
+            this.label_idResponsavel = new System.Windows.Forms.Label();
+            this.textBox_nomeResponsavel = new System.Windows.Forms.TextBox();
+            this.label_nomeResponsavel = new System.Windows.Forms.Label();
+            this.button_buscaTelefone = new System.Windows.Forms.Button();
+            this.textBox_idTelefone = new System.Windows.Forms.TextBox();
+            this.label_idTelefone = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.gb_genero.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctb_foto)).BeginInit();
             this.SuspendLayout();
@@ -205,7 +215,7 @@
             this.txt_rua.AcceptsTab = true;
             this.txt_rua.BackColor = System.Drawing.Color.White;
             this.txt_rua.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_rua.Location = new System.Drawing.Point(468, 15);
+            this.txt_rua.Location = new System.Drawing.Point(558, 170);
             this.txt_rua.Name = "txt_rua";
             this.txt_rua.Size = new System.Drawing.Size(233, 26);
             this.txt_rua.TabIndex = 21;
@@ -215,7 +225,7 @@
             this.lbl_rua.AutoSize = true;
             this.lbl_rua.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_rua.ForeColor = System.Drawing.Color.White;
-            this.lbl_rua.Location = new System.Drawing.Point(409, 15);
+            this.lbl_rua.Location = new System.Drawing.Point(509, 170);
             this.lbl_rua.Name = "lbl_rua";
             this.lbl_rua.Size = new System.Drawing.Size(43, 20);
             this.lbl_rua.TabIndex = 20;
@@ -226,7 +236,7 @@
             this.lbl_bairro.AutoSize = true;
             this.lbl_bairro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_bairro.ForeColor = System.Drawing.Color.White;
-            this.lbl_bairro.Location = new System.Drawing.Point(399, 62);
+            this.lbl_bairro.Location = new System.Drawing.Point(489, 222);
             this.lbl_bairro.Name = "lbl_bairro";
             this.lbl_bairro.Size = new System.Drawing.Size(55, 20);
             this.lbl_bairro.TabIndex = 18;
@@ -237,7 +247,7 @@
             this.txt_bairro.AcceptsTab = true;
             this.txt_bairro.BackColor = System.Drawing.Color.White;
             this.txt_bairro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_bairro.Location = new System.Drawing.Point(468, 59);
+            this.txt_bairro.Location = new System.Drawing.Point(558, 219);
             this.txt_bairro.Name = "txt_bairro";
             this.txt_bairro.Size = new System.Drawing.Size(233, 26);
             this.txt_bairro.TabIndex = 22;
@@ -247,7 +257,7 @@
             this.txt_cidade.AcceptsTab = true;
             this.txt_cidade.BackColor = System.Drawing.Color.White;
             this.txt_cidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_cidade.Location = new System.Drawing.Point(468, 106);
+            this.txt_cidade.Location = new System.Drawing.Point(558, 266);
             this.txt_cidade.Name = "txt_cidade";
             this.txt_cidade.Size = new System.Drawing.Size(233, 26);
             this.txt_cidade.TabIndex = 24;
@@ -257,7 +267,7 @@
             this.lbl_cidade.AutoSize = true;
             this.lbl_cidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_cidade.ForeColor = System.Drawing.Color.White;
-            this.lbl_cidade.Location = new System.Drawing.Point(399, 109);
+            this.lbl_cidade.Location = new System.Drawing.Point(489, 269);
             this.lbl_cidade.Name = "lbl_cidade";
             this.lbl_cidade.Size = new System.Drawing.Size(63, 20);
             this.lbl_cidade.TabIndex = 23;
@@ -268,7 +278,7 @@
             this.txt_estado.AcceptsTab = true;
             this.txt_estado.BackColor = System.Drawing.Color.White;
             this.txt_estado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_estado.Location = new System.Drawing.Point(468, 154);
+            this.txt_estado.Location = new System.Drawing.Point(558, 314);
             this.txt_estado.Name = "txt_estado";
             this.txt_estado.Size = new System.Drawing.Size(233, 26);
             this.txt_estado.TabIndex = 26;
@@ -278,7 +288,7 @@
             this.lbl_estado.AutoSize = true;
             this.lbl_estado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_estado.ForeColor = System.Drawing.Color.White;
-            this.lbl_estado.Location = new System.Drawing.Point(399, 157);
+            this.lbl_estado.Location = new System.Drawing.Point(489, 317);
             this.lbl_estado.Name = "lbl_estado";
             this.lbl_estado.Size = new System.Drawing.Size(64, 20);
             this.lbl_estado.TabIndex = 25;
@@ -289,7 +299,7 @@
             this.txt_cep.AcceptsTab = true;
             this.txt_cep.BackColor = System.Drawing.Color.White;
             this.txt_cep.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_cep.Location = new System.Drawing.Point(469, 210);
+            this.txt_cep.Location = new System.Drawing.Point(559, 370);
             this.txt_cep.Name = "txt_cep";
             this.txt_cep.Size = new System.Drawing.Size(233, 26);
             this.txt_cep.TabIndex = 28;
@@ -299,7 +309,7 @@
             this.lbl_cep.AutoSize = true;
             this.lbl_cep.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_cep.ForeColor = System.Drawing.Color.White;
-            this.lbl_cep.Location = new System.Drawing.Point(420, 216);
+            this.lbl_cep.Location = new System.Drawing.Point(510, 376);
             this.lbl_cep.Name = "lbl_cep";
             this.lbl_cep.Size = new System.Drawing.Size(42, 20);
             this.lbl_cep.TabIndex = 27;
@@ -310,7 +320,7 @@
             this.txt_numero.AcceptsTab = true;
             this.txt_numero.BackColor = System.Drawing.Color.White;
             this.txt_numero.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_numero.Location = new System.Drawing.Point(469, 263);
+            this.txt_numero.Location = new System.Drawing.Point(558, 410);
             this.txt_numero.Name = "txt_numero";
             this.txt_numero.Size = new System.Drawing.Size(233, 26);
             this.txt_numero.TabIndex = 30;
@@ -320,7 +330,7 @@
             this.lbl_num.AutoSize = true;
             this.lbl_num.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_num.ForeColor = System.Drawing.Color.White;
-            this.lbl_num.Location = new System.Drawing.Point(400, 266);
+            this.lbl_num.Location = new System.Drawing.Point(489, 413);
             this.lbl_num.Name = "lbl_num";
             this.lbl_num.Size = new System.Drawing.Size(69, 20);
             this.lbl_num.TabIndex = 29;
@@ -403,12 +413,132 @@
             this.btn_procurarId.UseVisualStyleBackColor = false;
             this.btn_procurarId.Click += new System.EventHandler(this.Btn_procurarId_Click);
             // 
+            // button_procuraResponsavel
+            // 
+            this.button_procuraResponsavel.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.button_procuraResponsavel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_procuraResponsavel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_procuraResponsavel.ForeColor = System.Drawing.Color.White;
+            this.button_procuraResponsavel.Location = new System.Drawing.Point(675, 18);
+            this.button_procuraResponsavel.Name = "button_procuraResponsavel";
+            this.button_procuraResponsavel.Size = new System.Drawing.Size(115, 26);
+            this.button_procuraResponsavel.TabIndex = 42;
+            this.button_procuraResponsavel.Text = "Procurar";
+            this.button_procuraResponsavel.UseVisualStyleBackColor = false;
+            // 
+            // textBox_idResponsavel
+            // 
+            this.textBox_idResponsavel.AcceptsTab = true;
+            this.textBox_idResponsavel.BackColor = System.Drawing.Color.White;
+            this.textBox_idResponsavel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_idResponsavel.Location = new System.Drawing.Point(557, 18);
+            this.textBox_idResponsavel.Name = "textBox_idResponsavel";
+            this.textBox_idResponsavel.Size = new System.Drawing.Size(112, 26);
+            this.textBox_idResponsavel.TabIndex = 41;
+            // 
+            // label_idResponsavel
+            // 
+            this.label_idResponsavel.AutoSize = true;
+            this.label_idResponsavel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_idResponsavel.ForeColor = System.Drawing.Color.White;
+            this.label_idResponsavel.Location = new System.Drawing.Point(425, 21);
+            this.label_idResponsavel.Name = "label_idResponsavel";
+            this.label_idResponsavel.Size = new System.Drawing.Size(126, 20);
+            this.label_idResponsavel.TabIndex = 40;
+            this.label_idResponsavel.Text = "ID Responsavel:";
+            // 
+            // textBox_nomeResponsavel
+            // 
+            this.textBox_nomeResponsavel.AcceptsTab = true;
+            this.textBox_nomeResponsavel.BackColor = System.Drawing.Color.White;
+            this.textBox_nomeResponsavel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_nomeResponsavel.Location = new System.Drawing.Point(557, 62);
+            this.textBox_nomeResponsavel.Name = "textBox_nomeResponsavel";
+            this.textBox_nomeResponsavel.Size = new System.Drawing.Size(233, 26);
+            this.textBox_nomeResponsavel.TabIndex = 39;
+            // 
+            // label_nomeResponsavel
+            // 
+            this.label_nomeResponsavel.AutoSize = true;
+            this.label_nomeResponsavel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_nomeResponsavel.ForeColor = System.Drawing.Color.White;
+            this.label_nomeResponsavel.Location = new System.Drawing.Point(403, 65);
+            this.label_nomeResponsavel.Name = "label_nomeResponsavel";
+            this.label_nomeResponsavel.Size = new System.Drawing.Size(151, 20);
+            this.label_nomeResponsavel.TabIndex = 38;
+            this.label_nomeResponsavel.Text = "Nome Responsavel:";
+            // 
+            // button_buscaTelefone
+            // 
+            this.button_buscaTelefone.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.button_buscaTelefone.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_buscaTelefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_buscaTelefone.ForeColor = System.Drawing.Color.White;
+            this.button_buscaTelefone.Location = new System.Drawing.Point(676, 94);
+            this.button_buscaTelefone.Name = "button_buscaTelefone";
+            this.button_buscaTelefone.Size = new System.Drawing.Size(115, 26);
+            this.button_buscaTelefone.TabIndex = 47;
+            this.button_buscaTelefone.Text = "Procurar";
+            this.button_buscaTelefone.UseVisualStyleBackColor = false;
+            // 
+            // textBox_idTelefone
+            // 
+            this.textBox_idTelefone.AcceptsTab = true;
+            this.textBox_idTelefone.BackColor = System.Drawing.Color.White;
+            this.textBox_idTelefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_idTelefone.Location = new System.Drawing.Point(558, 94);
+            this.textBox_idTelefone.Name = "textBox_idTelefone";
+            this.textBox_idTelefone.Size = new System.Drawing.Size(112, 26);
+            this.textBox_idTelefone.TabIndex = 46;
+            // 
+            // label_idTelefone
+            // 
+            this.label_idTelefone.AutoSize = true;
+            this.label_idTelefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_idTelefone.ForeColor = System.Drawing.Color.White;
+            this.label_idTelefone.Location = new System.Drawing.Point(426, 97);
+            this.label_idTelefone.Name = "label_idTelefone";
+            this.label_idTelefone.Size = new System.Drawing.Size(89, 20);
+            this.label_idTelefone.TabIndex = 45;
+            this.label_idTelefone.Text = "Id telefone:";
+            // 
+            // textBox2
+            // 
+            this.textBox2.AcceptsTab = true;
+            this.textBox2.BackColor = System.Drawing.Color.White;
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(558, 138);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(233, 26);
+            this.textBox2.TabIndex = 44;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(404, 141);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(151, 20);
+            this.label2.TabIndex = 43;
+            this.label2.Text = "Nome Responsavel:";
+            // 
             // Atualiza_Deleta_AlunoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Navy;
-            this.ClientSize = new System.Drawing.Size(835, 526);
+            this.ClientSize = new System.Drawing.Size(816, 526);
+            this.Controls.Add(this.button_buscaTelefone);
+            this.Controls.Add(this.textBox_idTelefone);
+            this.Controls.Add(this.label_idTelefone);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.button_procuraResponsavel);
+            this.Controls.Add(this.textBox_idResponsavel);
+            this.Controls.Add(this.label_idResponsavel);
+            this.Controls.Add(this.textBox_nomeResponsavel);
+            this.Controls.Add(this.label_nomeResponsavel);
             this.Controls.Add(this.btn_procurarId);
             this.Controls.Add(this.btn_remover);
             this.Controls.Add(this.btn_salvarmatricula);
@@ -479,5 +609,15 @@
         internal System.Windows.Forms.TextBox txt_cep;
         internal System.Windows.Forms.TextBox txt_numero;
         internal System.Windows.Forms.TextBox txt_idAluno;
+        private System.Windows.Forms.Button button_procuraResponsavel;
+        internal System.Windows.Forms.TextBox textBox_idResponsavel;
+        private System.Windows.Forms.Label label_idResponsavel;
+        internal System.Windows.Forms.TextBox textBox_nomeResponsavel;
+        private System.Windows.Forms.Label label_nomeResponsavel;
+        private System.Windows.Forms.Button button_buscaTelefone;
+        internal System.Windows.Forms.TextBox textBox_idTelefone;
+        private System.Windows.Forms.Label label_idTelefone;
+        internal System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label2;
     }
 }
