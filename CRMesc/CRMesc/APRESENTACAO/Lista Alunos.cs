@@ -39,7 +39,7 @@ namespace CRMesc.APRESENTACAO
             grid_Telefone.ReadOnly = true;
             grid_Telefone.RowTemplate.Height = 80;
             grid_Telefone.DataSource = telefone.GetTelefone(cmd3);
-            grid_Telefone.AllowUserToAddRows = false;
+            grid_Telefone.AllowUserToAddRows = false; 
 
             SqlCommand cmd4 = new SqlCommand("SELECT E.CEP, E.UF, E.CIDADE, E.BAIRRO, E.RUA, E.NUMERO FROM ENDERECO E INNER JOIN RESPONSAVEL_ENDERECO RE ON RE.IDENDERECO = E.IDENDERECO INNER JOIN RESPONSAVEL R ON R.IDRESPONSAVEL = RE.IDRESPONSAVEL INNER JOIN ALUNO A ON A.IDALUNO = R.IDALUNO ORDER BY A.IDALUNO");
             grid_Endereco.ReadOnly = true;
