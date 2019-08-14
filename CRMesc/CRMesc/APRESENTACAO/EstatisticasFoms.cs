@@ -12,9 +12,9 @@ namespace CRMesc
     public partial class EstatisticasFoms : Form
     {
         // variaveis de cores
-        Color pnl_TotalAlunosCor;
-        Color pnl_TotalAlunosMascCor;
-        Color pnl_TotalAlunosFemCor;
+        readonly Color pnl_TotalAlunosCor;
+        readonly Color pnl_TotalAlunosMascCor;
+        readonly Color pnl_TotalAlunosFemCor;
 
         public EstatisticasFoms()
         {

@@ -23,21 +23,6 @@ namespace CRMesc
             InitializeComponent();
         }
 
-        private void Label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TextBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void AdicionarAlunoForm_Load(object sender, EventArgs e)
-        {
-            
-        }
-
         private void Btn_salvarmatricula_Click(object sender, EventArgs e)
         {
 
@@ -47,10 +32,10 @@ namespace CRMesc
             Telefone tel = new Telefone();
 
             String responsavel = textBox_responsavel.Text;
-            String telefone = textBox_telefone.Text;
+            String telefone = mascara_Telefone.Text;
 
 
-            String cep = textBox_Cep.Text;
+            String cep = mascara_cep.Text;
             String rua = textBox_rua.Text;
             String bairro = textBox_bairro.Text;
             int numero = 0;
@@ -114,7 +99,6 @@ namespace CRMesc
                                             {
                                                 MessageBox.Show("Aluno cadastrado ", "Cadastro de aluno", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                                 limpaCampos();
-                                                countSucesso = 0;
                                             }
                                         }
                                         else
@@ -165,7 +149,7 @@ namespace CRMesc
                 MessageBox.Show("Nome do aluno pode ter no máximo 50 caracteres ", "Cadatro de aluno", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
-            else if ((textBox_telefone.Text.Length) > 20)
+            else if ((mascara_Telefone.Text.Length) > 20)
             {
                 MessageBox.Show("Telefone  pode ter no máximo 20 digitos ", "Cadastro de aluno", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
@@ -175,7 +159,7 @@ namespace CRMesc
                 MessageBox.Show("Nome do pai/responsável  pode ter no máximo 50 letras ", "Cadastro de aluno", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
-            else if ((textBox_Cep.Text.Length > 15))
+            else if ((mascara_cep.Text.Length > 15))
             {
                 MessageBox.Show("Cep  pode ter no máximo 15 caracteres ", "Cadastro de aluno", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
@@ -208,7 +192,7 @@ namespace CRMesc
  //               (txt_telefone.Text.Trim() == "") ||
                 (rd_btn_generoFem.Checked == false && rd_btn_generoMasc.Checked == false) ||
                 (pctb_foto.Image == null) ||
-                (textBox_Cep.Text.Trim() == "")|| 
+                (mascara_cep.Text.Trim() == "")|| 
                 (textBox_cidade.Text.Trim() == "") ||
                 (textBox_rua.Text.Trim() == "") ||
                 (textBox_numero.Text == "") ||
@@ -232,9 +216,12 @@ namespace CRMesc
         private void Btn_adicionarfotoaluno_Click(object sender, EventArgs e)
         {
             // buscador de imagens no pc
-            OpenFileDialog opf = new OpenFileDialog();
-            opf.Filter = "Selecione a foto(*.jpg;*.png;*.gif) | *.jpg;*.png;*.gif";
-            if(opf.ShowDialog() == DialogResult.OK)
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Filter = "Selecione a foto(*.jpg;*.png;*.gif) | *.jpg;*.png;*.gif"
+            };
+            OpenFileDialog opf = openFileDialog;
+            if (opf.ShowDialog() == DialogResult.OK)
             {
                 pctb_foto.Image = Image.FromFile(opf.FileName);
             }
@@ -259,23 +246,6 @@ namespace CRMesc
 
         private void Btn_preencher_endereco_Click(object sender, EventArgs e)
         {
-        }
-
-        private void setBtn_preencherClicado(bool valor)
-        {
-            this.btn_preencherIdClicado = valor;
-        }
-        private bool getBtn_preencherIdClicado()
-        {
-            return this.btn_preencherIdClicado;
-        }
-        private void setBtn_anexarIdClicado(bool valor)
-        {
-            this.btn_anexarId_Clicado = valor;
-        }
-        private bool getBtn_anexarIdClicado()
-        {
-            return this.btn_anexarId_Clicado;
         }
 
         private void Label1_Click(object sender, EventArgs e)
@@ -391,15 +361,53 @@ namespace CRMesc
             pctb_foto.Image = null;
             // dtBox_nascimento.Value = hoje.AddYears(-7);
             dtBox_nascimento.Value = DateTime.Now;
-            textBox_telefone.Clear();
+            mascara_Telefone.Clear();
             textBox_responsavel.Clear();
             textBox_rua.Clear();
-            textBox_Cep.Clear();
+            mascara_cep.Clear();
             textBox_uf.Clear();
             textBox_cidade.Clear();
             textBox_bairro.Clear();
             textBox_cidade.Clear();
             textBox_numero.Clear();
+        }
+
+        private void Button_buscaCep_Click(object sender, EventArgs e)
+        {
+            if (mascara_cep.Text.Trim() != "" )
+            {
+                String aux = "35162484";
+                if (aux.Length < 11)
+                {
+                    try
+                    {
+                        DataSet ds = new DataSet();
+                        String site = "http://cep.republicavirtual.com.br/web_cep.php?cep=@cep&formato=xml".Replace("@cep", aux);
+                        ds.ReadXml(site);
+                        textBox_rua.Text = ds.Tables[0].Rows[0]["Logradouro"].ToString();
+                        textBox_bairro.Text = ds.Tables[0].Rows[0]["Bairro"].ToString();
+                          textBox_cidade.Text = ds.Tables[0].Rows[0]["Cidade"].ToString();
+                        textBox_uf.Text = ds.Tables[0].Rows[0]["Uf"].ToString();
+                    }
+                    catch {
+                        MessageBox.Show("Erro ao buscar endereço por cep, preencha manualmente", "Buscar endereco por cep", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    
+                    /*
+                    textBox_uf.Text = restResponse();
+                    textBox_rua.Text = buscaCep.GetRua();
+                    textBox_bairro.Text = buscaCep.GetBairro();
+                    textBox_cidade.Text = buscaCep.GetCidade();*/
+                }
+                else
+                {
+                    MessageBox.Show("Cep deve ter 9 digitos","Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Insira o código do cep antes", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 

@@ -47,32 +47,31 @@
             this.grid_Alunos.Name = "grid_Alunos";
             this.grid_Alunos.Size = new System.Drawing.Size(416, 380);
             this.grid_Alunos.TabIndex = 0;
-            this.grid_Alunos.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.Grid_Alunos_MouseDoubleClick);
+            this.grid_Alunos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Grid_Alunos_CellContentClick);
+            this.grid_Alunos.DoubleClick += new System.EventHandler(this.Grid_Alunos_DoubleClick);
             // 
             // grid_responsavel
             // 
             this.grid_responsavel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grid_responsavel.Location = new System.Drawing.Point(434, 12);
             this.grid_responsavel.Name = "grid_responsavel";
-            this.grid_responsavel.Size = new System.Drawing.Size(420, 380);
+            this.grid_responsavel.Size = new System.Drawing.Size(347, 380);
             this.grid_responsavel.TabIndex = 1;
-            this.grid_responsavel.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.Grid_responsavel_MouseDoubleClick);
             // 
             // grid_Telefone
             // 
             this.grid_Telefone.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grid_Telefone.Location = new System.Drawing.Point(860, 12);
+            this.grid_Telefone.Location = new System.Drawing.Point(787, 12);
             this.grid_Telefone.Name = "grid_Telefone";
             this.grid_Telefone.Size = new System.Drawing.Size(232, 380);
             this.grid_Telefone.TabIndex = 2;
-            this.grid_Telefone.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.Grid_Telefone_MouseDoubleClick);
             // 
             // grid_Endereco
             // 
             this.grid_Endereco.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grid_Endereco.Location = new System.Drawing.Point(1098, 12);
+            this.grid_Endereco.Location = new System.Drawing.Point(1025, 12);
             this.grid_Endereco.Name = "grid_Endereco";
-            this.grid_Endereco.Size = new System.Drawing.Size(162, 380);
+            this.grid_Endereco.Size = new System.Drawing.Size(235, 380);
             this.grid_Endereco.TabIndex = 3;
             // 
             // Lista_Alunos

@@ -41,7 +41,6 @@
             this.btn_adicionarfotoaluno = new System.Windows.Forms.Button();
             this.btn_salvarmatricula = new System.Windows.Forms.Button();
             this.btn_cancelarMatricula = new System.Windows.Forms.Button();
-            this.textBox_Cep = new System.Windows.Forms.TextBox();
             this.label_cep = new System.Windows.Forms.Label();
             this.label_uf = new System.Windows.Forms.Label();
             this.label_cidade = new System.Windows.Forms.Label();
@@ -56,8 +55,9 @@
             this.button_buscaCep = new System.Windows.Forms.Button();
             this.label_responsavel = new System.Windows.Forms.Label();
             this.textBox_responsavel = new System.Windows.Forms.TextBox();
-            this.textBox_telefone = new System.Windows.Forms.TextBox();
             this.label_telefone = new System.Windows.Forms.Label();
+            this.mascara_Telefone = new System.Windows.Forms.MaskedTextBox();
+            this.mascara_cep = new System.Windows.Forms.MaskedTextBox();
             this.gb_genero.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctb_foto)).BeginInit();
             this.SuspendLayout();
@@ -81,7 +81,6 @@
             this.txt_nome.Name = "txt_nome";
             this.txt_nome.Size = new System.Drawing.Size(260, 26);
             this.txt_nome.TabIndex = 1;
-            this.txt_nome.Text = "Morgana Aparecida da Silva";
             // 
             // lbl_nascimento
             // 
@@ -216,15 +215,6 @@
             this.btn_cancelarMatricula.UseVisualStyleBackColor = false;
             this.btn_cancelarMatricula.Click += new System.EventHandler(this.Btn_cancelarMatricula_Click);
             // 
-            // textBox_Cep
-            // 
-            this.textBox_Cep.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_Cep.Location = new System.Drawing.Point(719, 39);
-            this.textBox_Cep.Name = "textBox_Cep";
-            this.textBox_Cep.Size = new System.Drawing.Size(130, 26);
-            this.textBox_Cep.TabIndex = 6;
-            this.textBox_Cep.Text = "35000000";
-            // 
             // label_cep
             // 
             this.label_cep.AutoSize = true;
@@ -240,7 +230,7 @@
             // 
             this.label_uf.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_uf.ForeColor = System.Drawing.Color.White;
-            this.label_uf.Location = new System.Drawing.Point(677, 92);
+            this.label_uf.Location = new System.Drawing.Point(677, 241);
             this.label_uf.Name = "label_uf";
             this.label_uf.Size = new System.Drawing.Size(40, 20);
             this.label_uf.TabIndex = 1;
@@ -251,7 +241,7 @@
             this.label_cidade.AutoSize = true;
             this.label_cidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_cidade.ForeColor = System.Drawing.Color.White;
-            this.label_cidade.Location = new System.Drawing.Point(647, 144);
+            this.label_cidade.Location = new System.Drawing.Point(647, 96);
             this.label_cidade.Name = "label_cidade";
             this.label_cidade.Size = new System.Drawing.Size(70, 20);
             this.label_cidade.TabIndex = 2;
@@ -262,7 +252,7 @@
             this.label_bairro.AutoSize = true;
             this.label_bairro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_bairro.ForeColor = System.Drawing.Color.White;
-            this.label_bairro.Location = new System.Drawing.Point(654, 198);
+            this.label_bairro.Location = new System.Drawing.Point(654, 150);
             this.label_bairro.Name = "label_bairro";
             this.label_bairro.Size = new System.Drawing.Size(62, 20);
             this.label_bairro.TabIndex = 3;
@@ -274,7 +264,7 @@
             this.label_rua.AutoSize = true;
             this.label_rua.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_rua.ForeColor = System.Drawing.Color.White;
-            this.label_rua.Location = new System.Drawing.Point(670, 247);
+            this.label_rua.Location = new System.Drawing.Point(670, 199);
             this.label_rua.Name = "label_rua";
             this.label_rua.Size = new System.Drawing.Size(47, 20);
             this.label_rua.TabIndex = 4;
@@ -285,7 +275,7 @@
             this.label_numero.AutoSize = true;
             this.label_numero.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_numero.ForeColor = System.Drawing.Color.White;
-            this.label_numero.Location = new System.Drawing.Point(640, 299);
+            this.label_numero.Location = new System.Drawing.Point(783, 238);
             this.label_numero.Name = "label_numero";
             this.label_numero.Size = new System.Drawing.Size(76, 20);
             this.label_numero.TabIndex = 5;
@@ -294,47 +284,42 @@
             // textBox_uf
             // 
             this.textBox_uf.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_uf.Location = new System.Drawing.Point(719, 92);
+            this.textBox_uf.Location = new System.Drawing.Point(719, 238);
             this.textBox_uf.Name = "textBox_uf";
-            this.textBox_uf.Size = new System.Drawing.Size(215, 26);
+            this.textBox_uf.Size = new System.Drawing.Size(49, 26);
             this.textBox_uf.TabIndex = 7;
-            this.textBox_uf.Text = "MG";
             // 
             // textBox_cidade
             // 
             this.textBox_cidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_cidade.Location = new System.Drawing.Point(719, 144);
+            this.textBox_cidade.Location = new System.Drawing.Point(719, 96);
             this.textBox_cidade.Name = "textBox_cidade";
-            this.textBox_cidade.Size = new System.Drawing.Size(215, 26);
+            this.textBox_cidade.Size = new System.Drawing.Size(257, 26);
             this.textBox_cidade.TabIndex = 8;
-            this.textBox_cidade.Text = "Dores de Guanhães";
             // 
             // textBox_bairro
             // 
             this.textBox_bairro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_bairro.Location = new System.Drawing.Point(719, 198);
+            this.textBox_bairro.Location = new System.Drawing.Point(719, 150);
             this.textBox_bairro.Name = "textBox_bairro";
-            this.textBox_bairro.Size = new System.Drawing.Size(215, 26);
+            this.textBox_bairro.Size = new System.Drawing.Size(257, 26);
             this.textBox_bairro.TabIndex = 9;
-            this.textBox_bairro.Text = "Fazenda Lagoa";
             // 
             // textBox_rua
             // 
             this.textBox_rua.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_rua.Location = new System.Drawing.Point(719, 247);
+            this.textBox_rua.Location = new System.Drawing.Point(719, 199);
             this.textBox_rua.Name = "textBox_rua";
-            this.textBox_rua.Size = new System.Drawing.Size(215, 26);
+            this.textBox_rua.Size = new System.Drawing.Size(257, 26);
             this.textBox_rua.TabIndex = 10;
-            this.textBox_rua.Text = "Taquara";
             // 
             // textBox_numero
             // 
             this.textBox_numero.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_numero.Location = new System.Drawing.Point(719, 299);
+            this.textBox_numero.Location = new System.Drawing.Point(865, 235);
             this.textBox_numero.Name = "textBox_numero";
-            this.textBox_numero.Size = new System.Drawing.Size(215, 26);
+            this.textBox_numero.Size = new System.Drawing.Size(111, 26);
             this.textBox_numero.TabIndex = 11;
-            this.textBox_numero.Text = "1532";
             this.textBox_numero.TextChanged += new System.EventHandler(this.TextBox6_TextChanged);
             // 
             // button_buscaCep
@@ -343,12 +328,13 @@
             this.button_buscaCep.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_buscaCep.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_buscaCep.ForeColor = System.Drawing.Color.White;
-            this.button_buscaCep.Location = new System.Drawing.Point(855, 39);
+            this.button_buscaCep.Location = new System.Drawing.Point(865, 36);
             this.button_buscaCep.Name = "button_buscaCep";
-            this.button_buscaCep.Size = new System.Drawing.Size(79, 26);
+            this.button_buscaCep.Size = new System.Drawing.Size(111, 26);
             this.button_buscaCep.TabIndex = 12;
             this.button_buscaCep.Text = "Buscar";
             this.button_buscaCep.UseVisualStyleBackColor = false;
+            this.button_buscaCep.Click += new System.EventHandler(this.Button_buscaCep_Click);
             // 
             // label_responsavel
             // 
@@ -370,17 +356,6 @@
             this.textBox_responsavel.Name = "textBox_responsavel";
             this.textBox_responsavel.Size = new System.Drawing.Size(260, 26);
             this.textBox_responsavel.TabIndex = 17;
-            this.textBox_responsavel.Text = "Geralda Aparecida da Silva";
-            // 
-            // textBox_telefone
-            // 
-            this.textBox_telefone.AcceptsTab = true;
-            this.textBox_telefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_telefone.Location = new System.Drawing.Point(285, 289);
-            this.textBox_telefone.Name = "textBox_telefone";
-            this.textBox_telefone.Size = new System.Drawing.Size(260, 26);
-            this.textBox_telefone.TabIndex = 19;
-            this.textBox_telefone.Text = "(31) 38222470";
             // 
             // label_telefone
             // 
@@ -394,13 +369,33 @@
             this.label_telefone.Text = "Telefone:";
             this.label_telefone.Click += new System.EventHandler(this.Label_telefone_Click);
             // 
+            // mascara_Telefone
+            // 
+            this.mascara_Telefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mascara_Telefone.Location = new System.Drawing.Point(285, 289);
+            this.mascara_Telefone.Mask = "(99) 0000 - 0000";
+            this.mascara_Telefone.Name = "mascara_Telefone";
+            this.mascara_Telefone.Size = new System.Drawing.Size(138, 26);
+            this.mascara_Telefone.TabIndex = 20;
+            // 
+            // mascara_cep
+            // 
+            this.mascara_cep.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mascara_cep.Location = new System.Drawing.Point(719, 36);
+            this.mascara_cep.Mask = "00000-000";
+            this.mascara_cep.Name = "mascara_cep";
+            this.mascara_cep.Size = new System.Drawing.Size(140, 26);
+            this.mascara_cep.TabIndex = 21;
+            this.mascara_cep.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            // 
             // AdicionarEnderecoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Navy;
-            this.ClientSize = new System.Drawing.Size(961, 504);
-            this.Controls.Add(this.textBox_telefone);
+            this.ClientSize = new System.Drawing.Size(1056, 504);
+            this.Controls.Add(this.mascara_cep);
+            this.Controls.Add(this.mascara_Telefone);
             this.Controls.Add(this.label_telefone);
             this.Controls.Add(this.textBox_responsavel);
             this.Controls.Add(this.label_responsavel);
@@ -410,7 +405,6 @@
             this.Controls.Add(this.textBox_bairro);
             this.Controls.Add(this.textBox_cidade);
             this.Controls.Add(this.textBox_uf);
-            this.Controls.Add(this.textBox_Cep);
             this.Controls.Add(this.label_numero);
             this.Controls.Add(this.label_rua);
             this.Controls.Add(this.label_bairro);
@@ -431,7 +425,6 @@
             this.Name = "AdicionarEnderecoForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdicionarAlunoForm";
-            this.Load += new System.EventHandler(this.AdicionarAlunoForm_Load);
             this.gb_genero.ResumeLayout(false);
             this.gb_genero.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctb_foto)).EndInit();
@@ -455,7 +448,6 @@
         private System.Windows.Forms.Button btn_salvarmatricula;
         private System.Windows.Forms.Button btn_cancelarMatricula;
         private System.Windows.Forms.Button btn_adicionarfotoaluno;
-        private System.Windows.Forms.TextBox textBox_Cep;
         private System.Windows.Forms.Label label_cep;
         private System.Windows.Forms.Label label_uf;
         private System.Windows.Forms.Label label_cidade;
@@ -466,11 +458,12 @@
         private System.Windows.Forms.TextBox textBox_cidade;
         private System.Windows.Forms.TextBox textBox_bairro;
         private System.Windows.Forms.TextBox textBox_rua;
-        private System.Windows.Forms.TextBox textBox_numero;
         private System.Windows.Forms.Button button_buscaCep;
         private System.Windows.Forms.Label label_responsavel;
         private System.Windows.Forms.TextBox textBox_responsavel;
-        private System.Windows.Forms.TextBox textBox_telefone;
         private System.Windows.Forms.Label label_telefone;
+        private System.Windows.Forms.MaskedTextBox mascara_Telefone;
+        private System.Windows.Forms.MaskedTextBox mascara_cep;
+        public System.Windows.Forms.TextBox textBox_numero;
     }
 }

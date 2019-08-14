@@ -32,12 +32,12 @@ namespace CRMesc
                 int idAluno = Convert.ToInt32(txt_idAluno.Text);
                 String nome = txt_nome.Text;
                 DateTime nascimento = dtBox_nascimento.Value;
-                String telefone = txt_telefone.Text;
+                String telefone = mascara_telefone.Text;
                 String genero = "Masculino";
-                String cep = txt_cep.Text;
+                String cep = mascara_cep.Text;
                 String rua = txt_rua.Text;
                 String bairro = txt_bairro.Text;
-                int numero = int.Parse(txt_numero.Text);
+                int numero = int.Parse(textBox_numero.Text);
                 String cidade = txt_cidade.Text;
                 String uf = txt_estado.Text;
 
@@ -107,13 +107,13 @@ namespace CRMesc
         bool verificaCampoVazio()
         {
             if ((txt_nome.Text.Trim() == "") ||
-                (txt_telefone.Text.Trim() == "") ||
+                (mascara_telefone.Text.Trim() == "") ||
                 (rd_btn_generoFem.Checked == false && rd_btn_generoMasc.Checked == false) ||
                 (pctb_foto.Image == null) ||
-                (txt_cep.Text.Trim() == "") ||
+                (mascara_cep.Text.Trim() == "") ||
                 (txt_cidade.Text.Trim() == "") ||
                 (txt_rua.Text.Trim() == "") ||
-                (txt_numero.Text.Trim() == "") ||
+                (textBox_numero.Text.Trim() == "") ||
                 (txt_bairro.Text.Trim() == "") ||
                 (txt_estado.Text.Trim() == "")
                 )
@@ -132,12 +132,12 @@ namespace CRMesc
                 MessageBox.Show("Nome do aluno pode ter no máximo 50 caracteres ", "Cadatro de aluno", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
-            else if ((txt_telefone.Text.Length) > 20)
+            else if ((mascara_telefone.Text.Length) > 20)
             {
                 MessageBox.Show("Telefone do aluno pode ter no máximo 20 digitos ", "Cadastro de aluno", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
-            else if ((txt_cep.Text.Length > 15))
+            else if ((mascara_cep.Text.Length > 15))
             {
                 MessageBox.Show("Cep do aluno pode ter no máximo 15 caracteres ", "Cadastro de aluno", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
@@ -179,13 +179,13 @@ namespace CRMesc
                         //limpa textbox
                         txt_idAluno.Clear();
                         txt_nome.Clear();
-                        txt_telefone.Clear();
+                        mascara_telefone.Clear();
                         dtBox_nascimento.Value = DateTime.Now;
                         pctb_foto.Image = null;
-                        txt_cep.Clear();
+                        mascara_cep.Clear();
                         txt_rua.Clear();
                         txt_bairro.Clear();
-                        txt_numero.Clear();
+                        textBox_numero.Clear();
                         txt_cidade.Clear();
                         txt_estado.Clear();
                     }
@@ -214,44 +214,55 @@ namespace CRMesc
         private void Btn_procurarId_Click(object sender, EventArgs e)
         {
 
-           try{
-                 Aluno aluno = new Aluno();
-            //buscar  Aluno por id
-            int idAluno = Convert.ToInt32(txt_idAluno.Text);
-            SqlCommand cmd = new SqlCommand("SELECT A.ID, A.NOME, A.NASCIMENTO, A.GENERO, T.TELEFONE, A.FOTO, E.CEP, E.RUA, E.BAIRRO, E.NUMERO, E.CIDADE, E.UF, R.NOME FROM ALUNO INNER JOIN RESPONSAVEL R WHERE ID = " + idAluno);
-            DataTable tabela = aluno.getAlunos(cmd);
-            if (tabela.Rows.Count > 0)
+            if (txt_idAluno.Text.Trim() != "")
             {
-                txt_idAluno.Text = tabela.Rows[0]["Id"].ToString();
-                txt_nome.Text = tabela.Rows[0]["Nome"].ToString();
-                dtBox_nascimento.Value = (DateTime)tabela.Rows[0]["Nascimento"];
-                if (tabela.Rows[0]["Genero"].ToString() == "Feminino")
+                //buscar  Aluno por id
+                int idAluno = int.Parse(txt_idAluno.Text);
+                try
                 {
-                    rd_btn_generoFem.Checked = true;
+                    Aluno aluno = new Aluno();
+
+                    SqlCommand cmd = new SqlCommand("SELECT A.ID, A.NOME, A.NASCIMENTO, A.GENERO, A.FOTO FROM ALUNO A WHERE A.IDALUNO = " + idAluno);
+                    DataTable tabela = aluno.getAlunos(cmd);
+                    if (tabela.Rows.Count > 0)
+                    {
+                        txt_idAluno.Text = tabela.Rows[0]["IdAluno"].ToString();
+                        txt_nome.Text = tabela.Rows[0]["Nome"].ToString();
+                        dtBox_nascimento.Value = (DateTime)tabela.Rows[0]["Nascimento"];
+                        if (tabela.Rows[0]["Genero"].ToString() == "F")
+                        {
+                            rd_btn_generoFem.Checked = true;
+                        }
+                        else
+                        {
+                            rd_btn_generoMasc.Checked = true;
+                        }
+                        // mascara_telefone.Text = tabela.Rows[0]["Telefone"].ToString();
+
+                        byte[] foto = (byte[])tabela.Rows[0]["Foto"];
+                        MemoryStream imagem = new MemoryStream(foto);
+                        pctb_foto.Image = Image.FromStream(imagem);
+
+                        //  mascara_cep.Text = tabela.Rows[0]["Cep"].ToString();
+                        /*  txt_rua.Text = tabela.Rows[0]["Rua"].ToString();
+                          txt_bairro.Text = tabela.Rows[0]["Bairro"].ToString();
+                          textBox_numero.Text = tabela.Rows[0]["Numero"].ToString();
+                          txt_cidade.Text = tabela.Rows[0]["Cidade"].ToString();
+                          txt_estado.Text = tabela.Rows[0]["UF"].ToString();*/
+                    }
+                    else
+                    {
+                        MessageBox.Show("O ID informado não existe no banco", "Erro ao Deletar aluno", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
-                else
+                catch
                 {
-                    rd_btn_generoMasc.Checked = true;
+                    MessageBox.Show("Erro ao consultar no banco de dados", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                txt_telefone.Text = tabela.Rows[0]["Telefone"].ToString();
-
-                byte[] foto = (byte[])tabela.Rows[0]["Foto"];
-                MemoryStream imagem = new MemoryStream(foto);
-                pctb_foto.Image = Image.FromStream(imagem);
-
-                txt_cep.Text = tabela.Rows[0]["Cep"].ToString();
-                txt_rua.Text = tabela.Rows[0]["Rua"].ToString();
-                txt_bairro.Text = tabela.Rows[0]["Bairro"].ToString();
-                txt_numero.Text = tabela.Rows[0]["Numero"].ToString();
-                txt_cidade.Text = tabela.Rows[0]["Cidade"].ToString();
-                txt_estado.Text = tabela.Rows[0]["UF"].ToString();
             }
             else
             {
-                    MessageBox.Show("O ID informado não existe no banco", "Erro ao Deletar aluno", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-           }catch{
-                  MessageBox.Show("Insira um ID na caixa de texto!","ID Inválido",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Informe ante um id", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         // somente numeros ao clicar no buscar
