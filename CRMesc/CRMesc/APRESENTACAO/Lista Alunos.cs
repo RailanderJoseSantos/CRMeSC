@@ -3,6 +3,7 @@ using System.Data.SqlClient;
 using System.IO;
 using System.Windows.Forms;
 using System.Drawing;
+using CRMesc.DAL;
 
 namespace CRMesc.APRESENTACAO
 {

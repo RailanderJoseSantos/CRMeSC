@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows;
 
-namespace CRMesc
+namespace CRMesc.DAL
 {
     class Endereco
     {

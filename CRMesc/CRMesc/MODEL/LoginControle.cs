@@ -14,7 +14,7 @@ namespace CRMesc
         {
             LoginDaoComandos loginDao = new LoginDaoComandos();
             //comando sql
-            tem = loginDao.verificarLogin(login, senha);
+            tem = loginDao.VerificarLogin(login, senha);
             if (!loginDao.mensagem.Equals(""))
             {
                 this.mensagem = loginDao.mensagem;

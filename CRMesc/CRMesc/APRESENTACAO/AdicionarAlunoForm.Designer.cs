@@ -382,11 +382,14 @@
             // 
             this.mascara_cep.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mascara_cep.Location = new System.Drawing.Point(719, 36);
-            this.mascara_cep.Mask = "00000-000";
+            this.mascara_cep.Mask = "0000-000";
             this.mascara_cep.Name = "mascara_cep";
             this.mascara_cep.Size = new System.Drawing.Size(140, 26);
             this.mascara_cep.TabIndex = 21;
             this.mascara_cep.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.mascara_cep.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.Mascara_cep_MaskInputRejected);
+            this.mascara_cep.TypeValidationCompleted += new System.Windows.Forms.TypeValidationEventHandler(this.Mascara_cep_TypeValidationCompleted);
+            this.mascara_cep.Validated += new System.EventHandler(this.Mascara_cep_Validated);
             // 
             // AdicionarEnderecoForm
             // 
@@ -425,6 +428,7 @@
             this.Name = "AdicionarEnderecoForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdicionarAlunoForm";
+            this.Load += new System.EventHandler(this.AdicionarEnderecoForm_Load);
             this.gb_genero.ResumeLayout(false);
             this.gb_genero.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctb_foto)).EndInit();
@@ -436,15 +440,10 @@
         #endregion
 
         private System.Windows.Forms.Label lbl_nome;
-        private System.Windows.Forms.TextBox txt_nome;
         private System.Windows.Forms.Label lbl_nascimento;
-        private System.Windows.Forms.DateTimePicker dtBox_nascimento;
         private System.Windows.Forms.Label lbl_genero;
         private System.Windows.Forms.GroupBox gb_genero;
-        private System.Windows.Forms.RadioButton rd_btn_generoFem;
-        private System.Windows.Forms.RadioButton rd_btn_generoMasc;
         private System.Windows.Forms.Label lbl_foto;
-        private System.Windows.Forms.PictureBox pctb_foto;
         private System.Windows.Forms.Button btn_salvarmatricula;
         private System.Windows.Forms.Button btn_cancelarMatricula;
         private System.Windows.Forms.Button btn_adicionarfotoaluno;
@@ -454,16 +453,21 @@
         private System.Windows.Forms.Label label_bairro;
         private System.Windows.Forms.Label label_rua;
         private System.Windows.Forms.Label label_numero;
-        private System.Windows.Forms.TextBox textBox_uf;
-        private System.Windows.Forms.TextBox textBox_cidade;
-        private System.Windows.Forms.TextBox textBox_bairro;
-        private System.Windows.Forms.TextBox textBox_rua;
         private System.Windows.Forms.Button button_buscaCep;
         private System.Windows.Forms.Label label_responsavel;
-        private System.Windows.Forms.TextBox textBox_responsavel;
         private System.Windows.Forms.Label label_telefone;
-        private System.Windows.Forms.MaskedTextBox mascara_Telefone;
-        private System.Windows.Forms.MaskedTextBox mascara_cep;
-        public System.Windows.Forms.TextBox textBox_numero;
+        internal System.Windows.Forms.TextBox txt_nome;
+        internal System.Windows.Forms.DateTimePicker dtBox_nascimento;
+        internal System.Windows.Forms.RadioButton rd_btn_generoFem;
+        internal System.Windows.Forms.RadioButton rd_btn_generoMasc;
+        internal System.Windows.Forms.TextBox textBox_uf;
+        internal System.Windows.Forms.TextBox textBox_cidade;
+        internal System.Windows.Forms.TextBox textBox_bairro;
+        internal System.Windows.Forms.TextBox textBox_rua;
+        internal System.Windows.Forms.TextBox textBox_responsavel;
+        internal System.Windows.Forms.MaskedTextBox mascara_cep;
+        internal System.Windows.Forms.TextBox textBox_numero;
+        internal System.Windows.Forms.MaskedTextBox mascara_Telefone;
+        internal System.Windows.Forms.PictureBox pctb_foto;
     }
 }

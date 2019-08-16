@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 
-namespace CRMesc
+namespace CRMesc.DAL
 {
     class Responsavel
     {

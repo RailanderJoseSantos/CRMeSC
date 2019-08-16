@@ -61,7 +61,7 @@
     <Compile Include="APRESENTACAO\AdicionarAlunoForm.Designer.cs">
       <DependentUpon>AdicionarAlunoForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Aluno.cs" />
+    <Compile Include="DAL\Aluno.cs" />
     <Compile Include="APRESENTACAO\Lista Alunos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,13 +93,14 @@
     <Compile Include="APRESENTACAO\EstatisticasFoms.Designer.cs">
       <DependentUpon>EstatisticasFoms.cs</DependentUpon>
     </Compile>
-    <Compile Include="Endereco.cs" />
+    <Compile Include="DAL\Endereco.cs" />
+    <Compile Include="MODEL\AdicionarAlunoControle.cs" />
     <Compile Include="MODEL\LoginControle.cs" />
     <Compile Include="DAL\LoginDaoComandos.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Responsavel.cs" />
-    <Compile Include="Telefone.cs" />
+    <Compile Include="DAL\Responsavel.cs" />
+    <Compile Include="DAL\Telefone.cs" />
     <EmbeddedResource Include="APRESENTACAO\AdicionarAlunoForm.resx">
       <DependentUpon>AdicionarAlunoForm.cs</DependentUpon>
     </EmbeddedResource>

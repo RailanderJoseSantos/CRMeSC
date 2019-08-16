@@ -15,7 +15,7 @@ namespace CRMesc.DAL
         SqlCommand cmd = new SqlCommand();
 
 
-        public bool verificarLogin(String login, String senha)
+        public bool VerificarLogin(String login, String senha)
         {
             LoginDaoComandos loginDao = new LoginDaoComandos();
             //comando sql
@@ -39,7 +39,7 @@ namespace CRMesc.DAL
             return tem;
         }
 
-       public String cadastrar(String login, String senha, String confSenha)
+       public String Cadastrar(String login, String senha, String confSenha)
         {
             //comandos pra inserir no banco
             return mensagem;
