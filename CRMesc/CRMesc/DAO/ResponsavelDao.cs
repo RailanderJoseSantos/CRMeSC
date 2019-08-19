@@ -1,4 +1,4 @@
-﻿using CRMesc.DAL;
+﻿using CRMesc.DAO;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -6,9 +6,9 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 
-namespace CRMesc.DAL
+namespace CRMesc.DAO
 {
-    class Responsavel
+    class ResponsavelDao
     {
         Banco db = new Banco();
         public bool inserirResponsavel(String nome, int idAluno)

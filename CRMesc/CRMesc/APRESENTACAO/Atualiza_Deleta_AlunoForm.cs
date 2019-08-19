@@ -1,4 +1,5 @@
-﻿using CRMesc.DAL;
+﻿using CRMesc.DAO;
+using CRMesc.MODEL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,64 +27,145 @@ namespace CRMesc
 
         private void Btn_salvarmatricula_Click(object sender, EventArgs e)
         {
-            try
-            {
-                // salvando atualização do aluno
-                Aluno aluno = new Aluno();
-                int idAluno = Convert.ToInt32(txt_idAluno.Text);
-                String nome = txt_nome.Text;
-                DateTime nascimento = dtBox_nascimento.Value;
-                String telefone = mascara_telefone.Text;
-                String genero = "Masculino";
-                String cep = mascara_cep.Text;
-                String rua = txt_rua.Text;
-                String bairro = txt_bairro.Text;
-                int numero = int.Parse(textBox_numero.Text);
-                String cidade = txt_cidade.Text;
-                String uf = txt_estado.Text;
+            EnderecoDao enDao = new EnderecoDao();
+            AlunoDao aluno = new AlunoDao();
 
-                if (rd_btn_generoFem.Checked)
+            ResponsavelDao resp = new ResponsavelDao();
+            TelefoneDao telDao = new TelefoneDao();
+
+            String responsavel = textBox_nomeResponsavel.Text;
+            String telefone = mascara_telefone.Text;
+
+            String cep =  mascara_cep.Text;
+            String rua = txt_rua.Text;
+            String bairro = txt_bairro.Text;
+            int numero = 0;
+            if (textBox_numero.Text.Trim() != "")
+            {
+                numero = Convert.ToInt32(textBox_numero.Text);
+            }
+            String cidade = txt_cidade.Text;
+            String uf = txt_estado.Text;
+
+            String nome = txt_nome.Text;
+            DateTime nascimento = dtBox_nascimento.Value;
+            // String telefone = txt_telefone.Text;
+            String genero = "M";
+
+            if (rd_btn_generoFem.Checked)
+            {
+                genero = "F";
+            }
+
+            MemoryStream fot = new MemoryStream();
+
+            int countSucesso = 0;
+            // checando idade de aluno ( 5 a 100 anos)
+            int ano_nasc = dtBox_nascimento.Value.Year;
+            int ano_atual = DateTime.Now.Year;
+            if (LimitesCaracteresAceitos())
+            {
+                if ((ano_atual - ano_nasc) < 5 || (ano_atual - ano_nasc) > 100)
                 {
-                    genero = "Feminino";
+                    MessageBox.Show("O aluno deve ter entre 5 e 100 anos", "Data de ascimento inválida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else // adicionar aluno no banco
+                if (VerificaCampoVazio())
+                {
+                    AdicionarAlunoControle adicionarAluno = new AdicionarAlunoControle();
+                    adicionarAluno.SalvaMatricula( nome, nascimento, genero, fot, responsavel, cep, rua, bairro, numero, cidade, uf, telefone);
+                }
+                else
+                {
+                    MessageBox.Show("Preencha todos os campos ", "Cadastro de aluno", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
 
-                MemoryStream fot = new MemoryStream();
-                // checando idade de aluno ( 5 a 100 anos)
-                int ano_nasc = dtBox_nascimento.Value.Year;
-                int ano_atual = DateTime.Now.Year;
-                if (limitesCaracteresAceitos())
-                {
-                    if ((ano_atual - ano_nasc) < 5 || (ano_atual - ano_nasc) > 100)
-                    {
-                        MessageBox.Show("O aluno deve ter entre 5 e 100 anos", "Data de ascimento inválida", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    else // adicionar aluno no banco
-                    if (verificaCampoVazio())
-                    {
-                        pctb_foto.Image.Save(fot, pctb_foto.Image.RawFormat);
-                        if (aluno.atualizarAluno(idAluno, nome, nascimento, telefone, genero, fot, cep, rua, bairro, numero, cidade, uf))
-                        {
-                            MessageBox.Show("Matrícula atualizada ", "Atualização de matrícula", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            this.Close();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Erro ", "Atualização de aluno", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            // Endereco endereco = new Endereco();
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Preencha todos os campos ", "Atualização de aluno", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    }
-                }
-            } catch
-            {
-                MessageBox.Show("Insira um ID na caixa de texto!", "Atualizar matrícula", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            }
-        
+        }
 
+        // funcao para  verificar campo em branco
+        public bool LimitesCaracteresAceitos()
+        {
+            if ((txt_nome.Text.Length > 50))
+            {
+                MessageBox.Show("Nome do aluno pode ter no máximo 50 caracteres ", "Cadatro de aluno", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+            else if ((mascara_telefone.Text.Length) > 20)
+            {
+                MessageBox.Show("Telefone  pode ter no máximo 20 digitos ", "Cadastro de aluno", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+            else if (textBox_nomeResponsavel.Text.Length > 50)
+            {
+                MessageBox.Show("Nome do pai/responsável  pode ter no máximo 50 letras ", "Cadastro de aluno", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+            else if ((mascara_cep.Text.Length > 15))
+            {
+                MessageBox.Show("Cep  pode ter no máximo 15 caracteres ", "Cadastro de aluno", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+            else if ((txt_rua.Text.Length > 50))
+            {
+                MessageBox.Show("Rua do aluno pode ter no máximo 50 caracteres ", "Cadastro de aluno", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+            else if ((txt_bairro.Text.Length > 50))
+            {
+                MessageBox.Show("Bairro do aluno pode ter no máximo 50 caracteres ", "Cadastro de aluno", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+            else if ((txt_estado.Text.Length > 2))
+            {
+                MessageBox.Show("Estado do aluno pode ter no máximo 2 caracteres ", "Cadastro de aluno", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+
+        }
+        // funcao para  verificar campo em branco
+        private bool VerificaCampoVazio()
+        {
+            if ((txt_nome.Text.Trim() == "") ||
+                //               (txt_telefone.Text.Trim() == "") ||
+                (rd_btn_generoFem.Checked == false && rd_btn_generoMasc.Checked == false) ||
+                (pctb_foto.Image == null) ||
+                (mascara_cep.Text.Trim() == "") ||
+                (txt_cidade.Text.Trim() == "") ||
+                (txt_rua.Text.Trim() == "") ||
+                (textBox_numero.Text == "") ||
+                (txt_bairro.Text.Trim() == "") ||
+                (txt_estado.Text.Trim() == "") ||
+                (textBox_nomeResponsavel.Text.Trim() == "")
+                )
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        private void LimpaCampos()
+        {
+            txt_nome.Clear();
+            pctb_foto.Image = null;
+            dtBox_nascimento.Value = DateTime.Now;
+            mascara_telefone.Clear();
+            textBox_nomeResponsavel.Clear();
+            txt_rua.Clear();
+            mascara_cep.Clear();
+            txt_estado.Clear();
+            txt_cidade.Clear();
+            txt_bairro.Clear();
+            txt_cidade.Clear();
+            textBox_numero.Clear();
+        }
         private void Txt_ptocurar_Click(object sender, EventArgs e)
         {
      
@@ -171,7 +253,7 @@ namespace CRMesc
             try
             {
                 int idAluno = Convert.ToInt32(txt_idAluno.Text);
-                Aluno aluno = new Aluno();
+                AlunoDao aluno = new AlunoDao();
                 if (MessageBox.Show("Você realmente deseja deletar a matrícula do aluno? ", "Deletar aluno", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     if (aluno.deletarAluno(idAluno))
@@ -221,7 +303,7 @@ namespace CRMesc
                 int idAluno = int.Parse(txt_idAluno.Text);
                 try
                 {
-                    Aluno aluno = new Aluno();
+                    AlunoDao aluno = new AlunoDao();
 
                     SqlCommand cmd = new SqlCommand("SELECT A.ID, A.NOME, A.NASCIMENTO, A.GENERO, A.FOTO FROM ALUNO A WHERE A.IDALUNO = " + idAluno);
                     DataTable tabela = aluno.getAlunos(cmd);

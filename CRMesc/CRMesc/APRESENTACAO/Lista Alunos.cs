@@ -3,7 +3,7 @@ using System.Data.SqlClient;
 using System.IO;
 using System.Windows.Forms;
 using System.Drawing;
-using CRMesc.DAL;
+using CRMesc.DAO;
 
 namespace CRMesc.APRESENTACAO
 {
@@ -13,10 +13,10 @@ namespace CRMesc.APRESENTACAO
         {
             InitializeComponent();
         }
-        Aluno aluno = new Aluno();
-        Responsavel responsavel = new Responsavel();
-        Telefone telefone = new Telefone();
-        Endereco endereco = new Endereco();
+        AlunoDao aluno = new AlunoDao();
+        ResponsavelDao responsavelDao = new ResponsavelDao();
+        TelefoneDao telefoneDao = new TelefoneDao();
+        EnderecoDao enderecoDao = new EnderecoDao();
         private void Lista_Alunos_Load(object sender, EventArgs e)
         {
             SqlCommand cmd = new SqlCommand("SELECT IDALUNO, NOME, NASCIMENTO, GENERO, FOTO FROM ALUNO ORDER BY IDALUNO");
@@ -33,19 +33,19 @@ namespace CRMesc.APRESENTACAO
                 " ON R.IDALUNO = A.IDALUNO  ORDER BY R.IDALUNO");
             grid_responsavel.ReadOnly = true;
             grid_responsavel.RowTemplate.Height = 80;
-            grid_responsavel.DataSource = responsavel.getResponsavel(cmd2);
+            grid_responsavel.DataSource = responsavelDao.getResponsavel(cmd2);
             grid_responsavel.AllowUserToAddRows = false;
 
             SqlCommand cmd3 = new SqlCommand("SELECT R.IDRESPONSAVEL, T.NUMERO FROM TELEFONE T INNER JOIN RESPONSAVEL_TELEFONE RT ON RT.IDTELEFONE = T.IDTELEFONE INNER JOIN RESPONSAVEL R ON R.IDRESPONSAVEL = RT.IDRESPONSAVEL INNER JOIN ALUNO A ON A.IDALUNO = R.IDALUNO ORDER BY R.IDALUNO");
             grid_Telefone.ReadOnly = true;
             grid_Telefone.RowTemplate.Height = 80;
-            grid_Telefone.DataSource = telefone.GetTelefone(cmd3);
+            grid_Telefone.DataSource = telefoneDao.GetTelefone(cmd3);
             grid_Telefone.AllowUserToAddRows = false; 
 
             SqlCommand cmd4 = new SqlCommand("SELECT E.CEP, E.UF, E.CIDADE, E.BAIRRO, E.RUA, E.NUMERO FROM ENDERECO E INNER JOIN RESPONSAVEL_ENDERECO RE ON RE.IDENDERECO = E.IDENDERECO INNER JOIN RESPONSAVEL R ON R.IDRESPONSAVEL = RE.IDRESPONSAVEL INNER JOIN ALUNO A ON A.IDALUNO = R.IDALUNO ORDER BY A.IDALUNO");
             grid_Endereco.ReadOnly = true;
             grid_Endereco.RowTemplate.Height = 80;
-            grid_Endereco.DataSource = endereco.getEndereco(cmd4);
+            grid_Endereco.DataSource = enderecoDao.GetEndereco(cmd4);
             grid_Endereco.AllowUserToAddRows = false;
         }
 

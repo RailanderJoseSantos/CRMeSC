@@ -1,4 +1,4 @@
-﻿using CRMesc.DAL;
+﻿using CRMesc.DAO;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -6,12 +6,12 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 
-namespace CRMesc.DAL
+namespace CRMesc.DAO
 {
-    class Telefone
+    class TelefoneDao
     {
         Banco db = new Banco();
-        public bool inserirTelefone(String numero)
+        public bool InserirTelefone(String numero)
         {
             SqlCommand cmd = new SqlCommand("INSERT INTO TELEFONE(NUMERO)" +
                 "VALUES(@NUMERO)", db.conectar());

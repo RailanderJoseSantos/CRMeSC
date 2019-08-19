@@ -1,4 +1,4 @@
-﻿using CRMesc.DAL;
+﻿using CRMesc.DAO;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -7,13 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Windows;
 
-namespace CRMesc.DAL
+namespace CRMesc.DAO
 {
-    class Endereco
+    class EnderecoDao
     {
         //funcao paraadcionar novo aluno no banco
         Banco db = new Banco();
-        public bool inserirEndereco( String cep, String rua, String bairro, int numero, String cidade, String estado)
+        public bool inserirEndereco(String cep, String rua, String bairro, int numero, String cidade, String estado)
         {
             SqlCommand cmd = new SqlCommand("INSERT INTO ENDERECO (CEP, UF, CIDADE, BAIRRO, RUA, NUMERO)" +
                 "VALUES(@CP, @UF, @CI, @BA, @RU, @NU)", db.conectar());
@@ -60,7 +60,7 @@ namespace CRMesc.DAL
 
         }
         //funcai de inserir na grid
-      public DataTable getEndereco(SqlCommand comand)
+        public DataTable GetEndereco(SqlCommand comand)
         {
             comand.Connection = db.conectar();
             SqlDataAdapter adapter = new SqlDataAdapter(comand);
@@ -69,7 +69,7 @@ namespace CRMesc.DAL
             return tableEnd;
         }
         //funcao para atualizar endereco
-        public bool atualizarEndereco(int idAluno, String cep, String rua, String bairro, int numero, String cidade, String estado)
+        public bool AtualizarEndereco(int idAluno, String cep, String rua, String bairro, int numero, String cidade, String estado)
         {
             SqlCommand cmd = new SqlCommand("UPDATE ENDERECO SET CEP = @cp, UF = @uf, CIDADE = @ci, BAIRRO = @ba, RUA = @ru, NUMERO = @nu WHERE ID =" + idAluno, db.conectar());
             int idEndereco = 0;
@@ -94,7 +94,7 @@ namespace CRMesc.DAL
         }
 
         //funcao para deletar aluno
-        public bool deletarEndereco(int idEndereco)
+        public bool DeletarEndereco(int idEndereco)
         {
             SqlCommand cmd = new SqlCommand("DELETE FROM ENDERECO WHERE IDENDERECO = @idEndereco", db.conectar());
             cmd.Parameters.Add("@idEndereco", SqlDbType.Int).Value = idEndereco;
@@ -111,7 +111,7 @@ namespace CRMesc.DAL
                 return false;
             }
         }
-        public int getIdEndereco()
+        public int GetIdEndereco()
         {
             int end = 0;
             SqlCommand cmd2 = new SqlCommand("SELECT MAX(IDENDERECO) FROM ENDERECO", db.conectar());

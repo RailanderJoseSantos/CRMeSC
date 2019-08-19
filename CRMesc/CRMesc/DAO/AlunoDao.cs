@@ -1,4 +1,4 @@
-﻿using CRMesc.DAL;
+﻿using CRMesc.DAO;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -6,9 +6,9 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Data;
-namespace CRMesc.DAL
+namespace CRMesc.DAO
 {
-    class Aluno
+    class AlunoDao
     {
         //funcao paraadcionar novo aluno no banco
         Banco db = new Banco();
